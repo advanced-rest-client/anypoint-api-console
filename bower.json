@@ -22,7 +22,7 @@
     "raml-path-to-object": "advanced-rest-client/raml-path-to-object#^1.0.40",
     "raml-aware": "advanced-rest-client/raml-aware#^1.0.3",
     "response-view": "advanced-rest-client/response-view#^0.1.13",
-    "raml-documentation-panel": "advanced-rest-client/raml-documentation-panel",
+    "raml-documentation-panel": "advanced-rest-client/raml-documentation-panel#^2.0.21",
     "raml-request-panel": "advanced-rest-client/raml-request-panel#^0.5.2",
     "paper-checkbox": "advanced-rest-client/paper-checkbox#^1.9.1",
     "paper-dropdown-menu": "mulesoft/paper-dropdown-menu#^1.5.3",
