@@ -2,6 +2,7 @@
 
 node_modules
 bower_components
+bundle
 
 npm-debug.log*
 *.log
