@@ -44,18 +44,14 @@
     "oauth2-scope-selector": "advanced-rest-client/oauth2-scope-selector#^1.0.6",
     "auth-methods": "advanced-rest-client/auth-methods#^2.0.36",
     "raml-request-parameters-editor": "advanced-rest-client/raml-request-parameters-editor#^0.3.2",
-    "authorization-panel": "advanced-rest-client/authorization-panel#^0.5.14",
+    "authorization-panel": "advanced-rest-client/authorization-panel#^0.6.6",
     "raml-headers-form": "advanced-rest-client/raml-headers-form#^0.3.2",
     "raml-request-headers-editor": "advanced-rest-client/raml-request-headers-editor#^0.3.4",
-    "raml-body-editor-panel": "advanced-rest-client/raml-body-editor-panel#^0.3.4"
+    "raml-body-editor-panel": "advanced-rest-client/raml-body-editor-panel#^0.3.4",
+    "arc-icons": "advanced-rest-client/anypoint-icons#^0.2.0"
   },
   "resolutions": {
     "raml-path-selector": "anypoint",
-    "raml-headers-form": "^0.3.2",
-    "oauth-authorization": "^0.2.3",
-    "authorization-panel": "^0.6.3",
-    "raml-request-url-editor": "^0.2.1",
-    "body-json-editor": "^0.2.0",
-    "raml-request-parameters-editor": "^0.3.2"
+    "arc-icons": "^0.2.0"
   }
 }
