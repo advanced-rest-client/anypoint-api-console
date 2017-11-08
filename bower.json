@@ -35,7 +35,6 @@
     "docs-parameters-table": "advanced-rest-client/docs-parameters-table#^1.1.53",
     "raml-docs-resource-viewer": "advanced-rest-client/raml-docs-resource-viewer#^1.0.22",
     "raml-request-url-editor": "advanced-rest-client/raml-request-url-editor#^0.2.1",
-    "anypoint-icons": "advanced-rest-client/anypoint-icons#^0.1.14",
     "anypoint-styles": "advanced-rest-client/anypoint-styles#^0.1.8",
     "response-status-view": "advanced-rest-client/response-status-view#^0.1.16",
     "response-body-view": "advanced-rest-client/response-body-view#^0.1.15",
