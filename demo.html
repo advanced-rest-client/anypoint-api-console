@@ -1,0 +1,168 @@
+<!doctype html>
+<!--
+@license
+Copyright 2017 Mulesoft.
+-->
+<!--
+This has to be run in a web server. Web component do not work with file:// scheme.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>API console bundle inspector</title>
+  <script>
+    window.Polymer = {
+      dom: 'shadow'
+    };
+
+    (function() {
+      'use strict';
+      var onload = function() {
+        if (!window.HTMLImports) {
+          document.dispatchEvent(new CustomEvent('WebComponentsReady', {bubbles: true}));
+        }
+      };
+      var webComponentsSupported = (
+        'registerElement' in document &&
+        'import' in document.createElement('link') &&
+        'content' in document.createElement('template')
+      );
+      if (!webComponentsSupported) {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        script.onload = onload;
+        document.head.appendChild(script);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          onload();
+        });
+      }
+    })();
+  </script>
+  <link rel="import" href="bundle/import.html">
+  <style is="custom-style">
+    :root {
+    }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+    .demo-selector {
+      --paper-dropdown-menu-color: #fff;
+    }
+
+    .demo-selector[opened] {
+      background-color: #fff;
+    }
+    header {
+      @apply --layout-horizontal;
+      @apply --layout-center;
+      background-color: var(--anypoint-color-steel1);
+      color: #fff;
+      padding: 0 15px;
+    }
+
+    h1 {
+      @apply --anypoint-font-header1;
+      margin-right: 15px;
+    }
+
+    .demo-content {
+      background-color: var(--anypoint-color-aluminum1);
+      height: 100%;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body unresolved>
+  <template is="dom-bind" id="demo">
+    <header class="abc">
+      <h1>ARC components demo page</h1>
+      <paper-dropdown-menu class="demo-selector" label="Select a component to render" on-selected-item-changed="_updateComponent">
+        <paper-listbox class="dropdown-content">
+          <template is="dom-repeat" items="[[modules]]">
+            <paper-item>[[item]]</paper-item>
+          </template>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-dropdown-menu class="demo-selector" label="Add additional component" on-selected-item-changed="_updateComponent2">
+        <paper-listbox class="dropdown-content">
+          <template is="dom-repeat" items="[[modules]]">
+            <paper-item>[[item]]</paper-item>
+          </template>
+        </paper-listbox>
+      </paper-dropdown-menu>
+    </header>
+    <div class="demo-content">
+      <output id="out"></output>
+    </div>
+  </template>
+  <script>
+  (function(scope) {
+    scope.init = function() {
+      var arcElements = [
+        'paper-autocomplete', 'paper-combobox', 'paper-fab-menu',
+        'paper-masked-input'
+      ];
+      var link = document.querySelector('link[rel="import"][href]');
+      var modules = link.import.querySelectorAll('dom-module');
+      var arcModules = [];
+      for (var i = 0, len = modules.length; i < len; i++) {
+        var mod = modules[i];
+        if (!mod.id) {
+          continue;
+        }
+        if (mod.id.indexOf('iron') === 0) {
+          continue;
+        }
+        if (mod.id.indexOf('paper') === 0) {
+          if (arcElements.indexOf(mod.id) === -1) {
+            continue;
+          }
+        }
+        if (mod.children.length < 2) {
+          // no UI modues, custom-style
+          continue;
+        }
+        arcModules.push(mod.id);
+      }
+      arcModules.sort(function(a, b) {
+        return a.localeCompare(b);
+      });
+      scope.modules = arcModules;
+    };
+    scope.currentComponent = null;
+    scope.currentComponent2 = null;
+    scope._handleComponentChange = function(e, isSecondary) {
+      if (!e.detail.value) {
+        return;
+      }
+      var existing = isSecondary ? scope.currentComponent2 : scope.currentComponent;
+      var out = document.getElementById('out');
+      if (existing) {
+        out.removeChild(existing);
+      }
+      var component = e.detail.value.innerText;
+      var cmp = document.createElement(component);
+      if (isSecondary) {
+        scope.currentComponent2 = cmp;
+      } else {
+        scope.currentComponent = cmp;
+      }
+      out.appendChild(cmp);
+    };
+    scope._updateComponent = function(e) {
+      scope._handleComponentChange(e, false);
+    };
+    scope._updateComponent2 = function(e) {
+      scope._handleComponentChange(e, true);
+    };
+    window.addEventListener('WebComponentsReady', scope.init);
+  })(document.getElementById('demo'));
+  </script>
+</body>
+</html>
