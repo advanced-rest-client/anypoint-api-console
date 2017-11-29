@@ -16,6 +16,7 @@
   "dependencies": {
     "json-viewer": "advanced-rest-client/json-viewer#^0.1.8",
     "code-mirror-styles": "advanced-rest-client/code-mirror-styles#^0.1.2",
+    "code-mirror": "advanced-rest-client/code-mirror#^1.1.15",
     "raml-js-parser": "advanced-rest-client/raml-js-parser#^2.0.1",
     "raml-json-enhance": "advanced-rest-client/raml-json-enhance#^0.2.8",
     "raml-path-selector": "advanced-rest-client/raml-path-selector#anypoint",
