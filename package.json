@@ -3,7 +3,7 @@
   "description": "This repo only exists to publish api console components to npm",
   "main": "index.js",
   "scripts": {
-    "build": "node ./create-bundle.js && bower install && find ./bower_components -name package.json -exec rm {} \\;",
+    "build": "bower update && find ./bower_components -name package.json -exec rm {} \\; && node ./create-bundle.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
