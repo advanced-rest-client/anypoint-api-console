@@ -26,36 +26,39 @@ This has to be run in a web server. Web component do not work with file:// schem
   <link rel="import" href="import.html">
   <custom-style>
     <style is="custom-style">
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
+    :root {
+      
+    }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
 
-      .demo-selector {
-        --paper-dropdown-menu-color: #fff;
-      }
+    .demo-selector {
+      --paper-dropdown-menu-color: #fff;
+    }
 
-      .demo-selector[opened] {
-        background-color: #fff;
-      }
+    .demo-selector[opened] {
+      background-color: #fff;
+    }
 
-      header {
-        @apply --layout-horizontal;
-        @apply --layout-center;
-        background-color: var(--anypoint-color-steel1);
-        color: #fff;
-        padding: 0 15px;
-      }
-      h1 {
-        @apply --anypoint-font-header1;
-        margin-right: 15px;
-      }
-      .demo-content {
-        background-color: var(--anypoint-color-aluminum1);
-        height: 100%;
-        padding: 20px;
-      }
+    header {
+      @apply --layout-horizontal;
+      @apply --layout-center;
+      background-color: var(--anypoint-color-steel1);
+      color: #fff;
+      padding: 0 15px;
+    }
+    h1 {
+      @apply --anypoint-font-header1;
+      margin-right: 15px;
+    }
+    .demo-content {
+      background-color: var(--anypoint-color-aluminum1);
+      height: 100%;
+      padding: 20px;
+    }
     </style>
   </custom-style>
 </head>
