@@ -3,7 +3,7 @@
   "description": "This repo only exists to publish api console components to npm",
   "main": "index.js",
   "scripts": {
-    "build": "bower update && find ./bower_components -name package.json -exec rm {} \\; && node ./create-bundle.js",
+    "build": "bower update && polymer build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -12,7 +12,7 @@
   },
   "author": "Mulesoft",
   "devDependencies": {
-    "api-console-builder": "^0.4.6",
+    "polymer-cli": "^1.6.0",
     "bower": "^1.8.0",
     "semantic-release": "^6.3.6"
   },

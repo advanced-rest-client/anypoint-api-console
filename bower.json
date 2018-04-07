@@ -23,7 +23,9 @@
     "anypoint-styles": "advanced-rest-client/anypoint-styles#2.0.0-preview",
     "iron-validatable-behavior": "advanced-rest-client/iron-validatable-behavior#2.0.0-preview",
     "iron-validator-behavior": "advanced-rest-client/iron-validator-behavior#2.0.0-preview",
-    "arc-icons": "advanced-rest-client/anypoint-icons#2.0.0-preview"
+    "arc-icons": "advanced-rest-client/anypoint-icons#2.0.0-preview",
+    "oauth-authorization": "advanced-rest-client/oauth-authorization#^2.0.1",
+    "cryptojs-lib": "advanced-rest-client/cryptojs-lib#^0.1.1"
   },
   "resolutions": {
     "paper-checkbox": "2.0.0-preview",
