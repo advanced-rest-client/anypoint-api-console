@@ -5,7 +5,7 @@
  * @param {String} bp Base path of the components
  * @return {String} A script to load.
  */
-module.exports.polymerPolyfillScript = function(bp) {
+module.exports.preImportScript = function(bp) {
   return `
     // This script does feature detection and loads polyfills if required.
     // Should be included before components import.
@@ -20,7 +20,7 @@ module.exports.polymerPolyfillScript = function(bp) {
  * @param {String} bp Base path of the components
  * @return {String} A script to load.
  */
-module.exports.imports = function(bp) {
+module.exports.importScript = function(bp) {
   return `
   <script>
   /**

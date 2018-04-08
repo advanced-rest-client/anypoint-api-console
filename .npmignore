@@ -1,1 +1,10 @@
+.DS_Store
 
+bower_components
+bundle
+build
+
+npm-debug.log*
+*.log
+
+WebComponents.js
