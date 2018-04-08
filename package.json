@@ -6,7 +6,8 @@
     "update": "bower update",
     "reactify": "node lib/api-reactor.js",
     "build": "npm run update && polymer build && npm run reactify",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
