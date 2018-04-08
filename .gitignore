@@ -6,3 +6,5 @@ bundle
 
 npm-debug.log*
 *.log
+
+WebComponents.js
