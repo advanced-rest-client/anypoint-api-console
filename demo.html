@@ -22,12 +22,13 @@ This has to be run in a web server. Web component do not work with file:// schem
       };
     }
   </script>
-  <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
   <link rel="import" href="import.html">
+  <link rel="import" href="bower_components/web-animations-js/web-animations-next-lite.min.html">
   <custom-style>
     <style is="custom-style">
     :root {
-      
+
     }
     html,
     body {
@@ -50,14 +51,20 @@ This has to be run in a web server. Web component do not work with file:// schem
       color: #fff;
       padding: 0 15px;
     }
+
     h1 {
       @apply --anypoint-font-header1;
       margin-right: 15px;
     }
+
     .demo-content {
       background-color: var(--anypoint-color-aluminum1);
       height: 100%;
       padding: 20px;
+    }
+
+    paper-item:hover {
+      @apply --paper-item-hover;
     }
     </style>
   </custom-style>
