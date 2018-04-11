@@ -5,6 +5,31 @@ The build to be used in Exchange, API designer or any Anypoint application.
 It contains Restyled and customized version of the console to match Anypoint style guide.
 
 
+
+**⚠ This is build in progress. Report issues immediately so I can fix it. ⚠**
+
+Currently only dev version of this npm module is available.
+
+To run the demo:
+
+```
+git clone https://github.com/advanced-rest-client/anypoint-api-console.git
+cd anypoint-api-console
+git checkout 2.0.0-preview
+npm i
+```
+
+Got and grab some coffee. It may take a while when installing for the first time...
+
+When ready run any web server in the directory to see demo page. You can, for example, use polymer-cli included in the module:
+
+```
+node_modules/.bin/polymer serve --open
+```
+
+
+  ** INSTRUCTIONS BELOW WILL BE VASLID ONLY AFTER THIS PACKAGE IS PUBLISHED **
+
 ## Usage
 
 Install anypoint-api-console as a dependency of your project

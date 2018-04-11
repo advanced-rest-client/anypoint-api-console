@@ -8,3 +8,5 @@ npm-debug.log*
 *.log
 
 WebComponents.js
+
+build
