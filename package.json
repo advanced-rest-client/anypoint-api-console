@@ -21,6 +21,6 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "wc-reactor": "^0.1.2"
+    "wc-reactor": "^0.1.3"
   }
 }
