@@ -5,7 +5,6 @@ The build to be used in Exchange, API designer or any Anypoint application.
 It contains Restyled and customized version of the console to match Anypoint style guide.
 
 
-
 **⚠ This is build in progress. Report issues immediately so I can fix it. ⚠**
 
 Currently only dev version of this npm module is available.
@@ -27,7 +26,6 @@ When ready run any web server in the directory to see demo page. You can, for ex
 node_modules/.bin/polymer serve --open
 ```
 
-
   **INSTRUCTIONS BELOW WILL BE VALID ONLY AFTER THIS PACKAGE IS PUBLISHED**
 
 ## Usage
@@ -38,8 +36,11 @@ Install anypoint-api-console as a dependency of your project
 $ npm i --save @mulesoft/anypoint-api-console
 ```
 
+API console is downloaded, installed and compiled (bundled) when this module
+is installed automatically.
+
 The install script will install current version of the console and perform
-a build for production. The assets are located in two bundles:
+the build for production. The assets are located in two bundles:
 
 - build/es5-bundle
 - build/es6-bundle
@@ -83,3 +84,64 @@ export default function renderHTML() {
   `;
 }
 ```
+
+## Configuration
+
+You can configure behavior of the build process by creating `"api-console"`
+entry in your `package.json` file.
+
+List of all available options are in [lib/install.js](lib/install.js) script.
+
+### Exchange example
+
+```json
+"api-console": {
+  "useFragments": true,
+  "addWebAnimationsApi": true,
+  "out": "public/api-console"
+}
+```
+
+### DC example
+
+```json
+"api-console": {
+  "addXhrRequest": true,
+  "addWebAnimationsApi": true,
+  "out": "public/api-console"
+}
+```
+
+`useFragments` option tells the build script to not include whole API console
+sources but rather `api-navigation`, `api-documentation` and `api-request-panel`
+components.
+
+Bundles and React components are located in your project directory under `public/api-console`.
+
+## Rebuilding the console
+
+Add this command to your scripts entry of `package.json`:
+
+```json
+"build-console": "anypoint-api-console"
+```
+
+and then run:
+
+```
+$ npm run build-console
+```
+
+## Versioning
+
+You may notice that there's no fixed versioning of the console. It means that
+each time this script is run it updated the components to newest version without
+possibility to fix at some version of the console.
+
+Generally that is the point of this repository. It should ensure similar experience
+of the console across all Anypoint applications.
+
+API console components are fixed on minor version so it's safe to update the Console
+whenever it's possible. You can be sure that the API is the same. As long
+as you are not using custom styling of the console (and you shouldn't) then
+you are always safe to upgrade the comnponents.

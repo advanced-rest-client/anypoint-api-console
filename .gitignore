@@ -10,3 +10,6 @@ npm-debug.log*
 WebComponents.js
 
 build
+console-import.html
+fragments-import.html
+import.html

@@ -1,8 +1,8 @@
 {
-  "entrypoint": "import.html",
+  "entrypoint": "/Users/pawelpsztyc/workspace/mulesoft/anypoint-api-console/import.html",
   "fragments": [],
   "sources": [
-   "bower.json"
+    "bower.json"
   ],
   "extraDependencies": [
     "bower_components/webcomponentsjs/webcomponents-lite.js",
@@ -13,10 +13,13 @@
     "bower_components/prism/plugins/autolinker/prism-autolinker.min.js",
     "bower_components/prism/themes/prism.css",
     "bower_components/xml-viewer/workers/**.js",
-    "bower_components/prism/components/**.js"
+    "bower_components/prism/components/**.js",
+    "bower_components/codemirror/mode/**/**.js"
   ],
   "lint": {
-    "rules": ["polymer-2"]
+    "rules": [
+      "polymer-2"
+    ]
   },
   "builds": [
     {
@@ -25,7 +28,9 @@
       "addServiceWorker": false,
       "addPushManifest": false,
       "insertPrefetchLinks": false,
-      "excludes": ["bower_components/paper-styles/default-theme.html"],
+      "excludes": [
+        "bower_components/paper-styles/default-theme.html"
+      ],
       "stripComments": true
     },
     {
@@ -34,7 +39,9 @@
       "addServiceWorker": false,
       "addPushManifest": false,
       "insertPrefetchLinks": false,
-      "excludes": ["bower_components/paper-styles/default-theme.html"],
+      "excludes": [
+        "bower_components/paper-styles/default-theme.html"
+      ],
       "stripComments": true
     }
   ]

@@ -1,26 +1,26 @@
 {
-  "name": "@mulesoft/api-console-assets",
+  "name": "@mulesoft/anypoint-api-console",
   "description": "Contains build tools for Anypoint version of API console",
   "main": "index.js",
+  "bin": "lib/install.js",
   "scripts": {
-    "update": "bower update",
     "reactify": "node lib/api-reactor.js",
-    "build": "npm run update && polymer build && npm run reactify",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "install": "npm run build"
+    "build": "node lib/install.js",
+    "install": "node lib/install.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft-labs/api-console-assets.git"
+    "url": "https://github.com/mulesoft-labs/anypoint-api-console.git"
   },
   "author": "Pawel Psztyc",
   "devDependencies": {
-    "polymer-cli": "^1.6.0",
-    "bower": "^1.8.0",
     "semantic-release": "^6.3.6"
   },
   "license": "UNLICENSED",
   "dependencies": {
+    "polymer-cli": "^1.6.0",
+    "bower": "^1.8.0",
+    "fs-extra": "^5.0.0",
     "wc-reactor": "^0.1.3"
   }
 }
