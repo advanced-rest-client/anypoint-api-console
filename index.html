@@ -13,6 +13,16 @@ This has to be run in a web server. Web component do not work with file:// schem
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>API console bundle inspector</title>
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <!-- <link rel="import" href="bower_components/polymer/lib/elements/dom-bind.html">
+  <link rel="import" href="bower_components/shadycss/apply-shim.html">
+  <link rel="import" href="bower_components/polymer/lib/elements/custom-style.html"> -->
+  <!-- <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="bower_components/raml-aware/raml-aware.html">
+  <link rel="import" href="bower_components/api-navigation/api-navigation.html">
+  <link rel="import" href="bower_components/api-documentation/api-documentation.html">
+  <link rel="import" href="bower_components/api-request-panel/api-request-panel.html">
+  <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
+  <link rel="import" href="bower_components/xhr-simple-request/xhr-simple-request.html"> -->
   <script src="import-detection.js"></script>
   <custom-style>
     <style is="custom-style">
@@ -22,45 +32,64 @@ This has to be run in a web server. Web component do not work with file:// schem
       margin: 0;
     }
 
-    .demo-selector {
-      --paper-dropdown-menu-color: #fff;
-    }
-
-    .demo-selector[opened] {
-      background-color: #fff;
-    }
-
-    header {
-      @apply --layout-horizontal;
-      @apply --layout-center;
-      background-color: var(--anypoint-color-steel1);
-      color: #fff;
-      padding: 0 15px;
-    }
-
-    h1 {
-      @apply --anypoint-font-header1;
-      margin-right: 15px;
-    }
-
     .demo-content {
       background-color: var(--anypoint-color-aluminum1);
       height: 100%;
       padding: 20px;
+      @apply --layout-horizontal;
+    }
+
+    .demo-content > * {
+      margin-right: 20px;
+      background-color: #fff;
+    }
+
+    .demo-content > *:last-child {
+      margin-right: 0px;
+    }
+
+    api-navigation {
+      width: 320px;
+    }
+
+    api-documentation {
+      max-width: 900px;
+      @apply --layout-flex;
+    }
+
+    api-request-panel {
+      max-width: 900px;
+      @apply --layout-flex;
     }
     </style>
   </custom-style>
 </head>
 <body unresolved>
-  <dom-bind id="demo">
-    <template>
-      <header class="abc">
-        <h1>ARC components demo page</h1>
-      </header>
-      <div class="demo-content" role="main">
-        <api-request-panel></api-request-panel>
-      </div>
-    </template>
-  </dom-bind>
+  <raml-aware scope="model" id="aware"></raml-aware>
+  <div class="demo-content">
+    <api-navigation aware="model" summary endpoints-opened></api-navigation>
+    <api-documentation aware="model" handle-navigation-events no-try-it></api-documentation>
+    <api-request-panel aware="model" handle-navigation-events></api-request-panel>
+  </div>
+  <script>
+  var Demo = {};
+  Demo.init = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', (e) => {
+      let data;
+      try {
+        data = JSON.parse(e.target.response);
+      } catch (e) {
+        window.alert('Unable to parse AMF model');
+        return;
+      }
+      document.getElementById('aware').raml = data;
+    });
+    xhr.addEventListener('error', () => window.alert('Unable to load AMF model'));
+    xhr.open('GET', './amf-model.json');
+    xhr.send();
+  };
+  window.addEventListener('WebComponentsReady', Demo.init);
+  </script>
 </body>
 </html>
