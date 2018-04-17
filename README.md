@@ -90,7 +90,7 @@ export default function renderHTML() {
 You can configure behavior of the build process by creating `"api-console"`
 entry in your `package.json` file.
 
-List of all available options are in [lib/install.js](lib/install.js) script.
+List of all available options are in [lib/install.js](lib/install.js#L114) script.
 
 ### Exchange example
 
@@ -135,13 +135,16 @@ $ npm run build-console
 ## Versioning
 
 You may notice that there's no fixed versioning of the console. It means that
-each time this script is run it updated the components to newest version without
-possibility to fix at some version of the console.
+each time this script runs it updates the components to newest version without
+possibility to fix at any specific version of them. Well, this is exactly how released
+API console behave for the last year.
 
-Generally that is the point of this repository. It should ensure similar experience
-of the console across all Anypoint applications.
+Generally that is the point of this repository. It should ensure the same experience
+of the console across all Anypoint applications. To do this there must be no specific
+version fixing. Since application hosting the console does not rely of specific internal
+API of the Console there's no reason for that.
 
 API console components are fixed on minor version so it's safe to update the Console
-whenever it's possible. You can be sure that the API is the same. As long
-as you are not using custom styling of the console (and you shouldn't) then
-you are always safe to upgrade the comnponents.
+whenever it's possible. You can be sure that components public API is the same. As long
+as you are not using custom styling of the console (and you shouldn't!) then
+you are always safe to upgrade the components.
