@@ -1,0 +1,29 @@
+[
+  {
+    "@id": "file://demo-apis/catalog-api/catalog.raml",
+    "@type": [
+      "http://raml.org/vocabularies/document#ExternalFragment",
+      "http://raml.org/vocabularies/document#Fragment",
+      "http://raml.org/vocabularies/document#Unit"
+    ],
+    "http://raml.org/vocabularies/document#encodes": [
+      {
+        "@id": "file://demo-apis/catalog-api/catalog.raml#/external",
+        "@type": [
+          "http://raml.org/vocabularies/document#ExternalDomainElement",
+          "http://raml.org/vocabularies/document#DomainElement"
+        ],
+        "http://raml.org/vocabularies/document#raw": [
+          {
+            "@value": "#%RAML 1.0 \nbaseUri: https://mocksvc.mulesoft.com/mocks/765c0c12-c331-4eed-b463-3160a572eae3 # baseUri: https://mocksvc.mulesoft.com/mocks/dfe96a2b-b982-484d-8c72-00cfc8f4fddc # \ntitle: Catalog API\n\nversion: 1.0\nmediaType: application/json\n\nuses:\n  product: /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/catalog-datatypes/1.0.6/productTypes.raml\n  traits: /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/commons-traits/1.0.0/traits.raml\n\nresourceTypes:\n  collection: !include /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/commons-resourcetypes/1.0.1/collection.raml\n  member: !include /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/commons-resourcetypes/1.0.1/member.raml\n\n/catalog:\n  /products:\n    type:\n      collection:\n        response-type: product.ProductData\n        request-type: product.NewProductData\n        response-example:  !include /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/catalog-examples/1.0.15/ProductCollectionExample.raml\n    /{product_id}:\n      type:\n        member:\n          get-response-example: !include /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/catalog-examples/1.0.15/ProductExample.raml\n          get-response-type: product.ProductData\n          patch-response-type: product.ProductData\n    /price/{price}:\n      type:\n        collection:\n          response-type: product.ProductData\n          request-type: product.NewProductData\n          response-example:  !include /exchange_modules/a6d4cdc7-ecb0-4315-a6a6-216c71ba0b54/catalog-examples/1.0.15/ProductCollectionExample.raml"
+          }
+        ],
+        "http://raml.org/vocabularies/http#mediaType": [
+          {
+            "@value": "application/raml+yaml"
+          }
+        ]
+      }
+    ]
+  }
+]

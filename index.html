@@ -13,7 +13,6 @@ This has to be run in a web server. Web component do not work with file:// schem
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>API console bundle inspector</title>
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-  <link rel="import" href="bower_components/polymer/lib/elements/dom-bind.html">
   <link rel="import" href="bower_components/shadycss/apply-shim.html">
   <link rel="import" href="bower_components/polymer/lib/elements/custom-style.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
@@ -23,6 +22,8 @@ This has to be run in a web server. Web component do not work with file:// schem
   <link rel="import" href="bower_components/api-request-panel/api-request-panel.html">
   <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
   <link rel="import" href="bower_components/xhr-simple-request/xhr-simple-request.html">
+  <link rel="import" href="bower_components/oauth-authorization/oauth-authorization.html">
+  <link rel="import" href="bower_components/cryptojs-lib/cryptojs-lib.html">
   <!-- <script src="import-detection.js"></script> -->
   <style>
   html,
@@ -47,9 +48,18 @@ This has to be run in a web server. Web component do not work with file:// schem
   </style>
   <custom-style>
     <style is="custom-style">
+    header {
+      padding: 12px 24px;
+      background-color: #C5E1A5;
+    }
+
     .demo-content {
       padding: 20px;
       @apply --layout-horizontal;
+    }
+
+    paper-dropdown-menu {
+      background-color: #fff;
     }
 
     api-documentation {
@@ -61,11 +71,27 @@ This has to be run in a web server. Web component do not work with file:// schem
       max-width: 900px;
       @apply --layout-flex;
     }
+
+    paper-item:hover  {
+      @apply --paper-item-hover;
+    }
     </style>
   </custom-style>
 </head>
 <body unresolved>
   <raml-aware scope="model" id="aware"></raml-aware>
+  <xhr-simple-request></xhr-simple-request>
+  <oauth1-authorization></oauth1-authorization>
+  <oauth2-authorization></oauth2-authorization>
+  <header>
+    <paper-dropdown-menu label="Select demo API">
+      <paper-listbox slot="dropdown-content" id="enpointsList">
+        <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
+        <paper-item data-src="catalog.json">catalog-api</paper-item>
+        <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
+      </paper-listbox>
+    </paper-dropdown-menu>
+  </header>
   <div class="demo-content">
     <api-navigation aware="model" summary endpoints-opened></api-navigation>
     <api-documentation aware="model" handle-navigation-events no-try-it></api-documentation>
@@ -73,7 +99,11 @@ This has to be run in a web server. Web component do not work with file:// schem
   </div>
   <script>
   var Demo = {};
-  Demo.init = function() {
+  Demo._apiChanged = function(e) {
+    var file = e.target.selectedItem.dataset.src;
+    Demo._loadFile(file);
+  };
+  Demo._loadFile = function(file) {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', (e) => {
       let data;
@@ -86,9 +116,13 @@ This has to be run in a web server. Web component do not work with file:// schem
       document.getElementById('aware').raml = data;
     });
     xhr.addEventListener('error', () => window.alert('Unable to load AMF model'));
-    xhr.open('GET', './amf-model.json');
+    xhr.open('GET', './demo-apis/models/' + file);
     xhr.send();
   };
+  Demo.init = function() {
+    document.getElementById('enpointsList').selected = 0;
+  };
+  document.getElementById('enpointsList').addEventListener('selected-changed', Demo._apiChanged);
   window.addEventListener('WebComponentsReady', Demo.init);
   </script>
 </body>

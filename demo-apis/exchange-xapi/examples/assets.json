@@ -1,0 +1,110 @@
+[
+  {
+    "groupId": "991c61af-9e34-4d03-b470-9dee8b78bfa4",
+    "assetId": "aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d",
+    "version": "1.0.0",
+    "description": null,
+    "name": "aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d",
+    "type": "rest-api",
+    "rating": 0,
+    "numberOfRates": 0,
+    "createdAt": "2017-08-11T21:35:06.51Z",
+    "files": [
+      {
+        "classifier": "oas",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/d495c276-e6fc-480c-b130-89fff2be116a/aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d-1.0.0-oas.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=cla6vukEq66ZavXDo%2FjOKtIOZKk%3D",
+        "md5": "8966b1c8d1813b3a990a0ff3fc460e2b"
+      },
+      {
+        "classifier": "fat-raml",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/32c44aed-3074-4d15-a546-d331268bf70e/aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d-1.0.0-fat-raml.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=WTSKsqXOglujeHUkeWQA0ILp7Vk%3D&response-content-disposition=attachment%3B%20filename%3Daut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d-1.0.0-raml.zip",
+        "md5": "26b66fd6f9d1e3057b51a1e40c46237c"
+      },
+      {
+        "classifier": "raml",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/8da5babb-60c6-4523-9202-4de25e061d1c/aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d-1.0.0-raml.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=idRN6IGIyT74v9YfD%2FgdAtZJpLs%3D",
+        "md5": "0f1604a330c1460ef0aa8a444b53a322"
+      },
+      {
+        "classifier": "error",
+        "packaging": "txt",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/ba7f9936-01f8-41f4-93f2-331305611ea7/aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d-1.0.0-error.txt?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=tV4vO7g4fUDEEirqYZ%2BcVQ%2FpZBM%3D",
+        "md5": "be37e14ec751fb45e6f1f5b8affe5560"
+      }
+    ],
+    "createdBy": {
+      "id": "4a643a77-1630-4019-a006-dbabf2d63815",
+      "userName": "aut-exc-org-a-admin",
+      "firstName": "Automation",
+      "lastName": "Org-A-Admin"
+    },
+    "organization": {
+      "id": "991c61af-9e34-4d03-b470-9dee8b78bfa4",
+      "domain": "mulesoft",
+      "name": "MuleSoft"
+    },
+    "id": "991c61af-9e34-4d03-b470-9dee8b78bfa4/aut-f38c97a9-6a8d-47b0-bee6-79abdaab3e4d/1.0.0",
+    "icon": null,
+    "modifiedAt": "2017-08-11T21:35:06.51Z",
+    "dependencies": {},
+    "isPrivate": false,
+    "status": ""
+  },
+  {
+    "groupId": "991c61af-9e34-4d03-b470-9dee8b78bfa4",
+    "assetId": "aut-66befff2-8259-4f83-993d-7da757e73ef2",
+    "version": "1.5.20",
+    "description": null,
+    "name": "aut-66befff2-8259-4f83-993d-7da757e73ef2",
+    "type": "rest-api",
+    "rating": 0,
+    "numberOfRates": 0,
+    "createdAt": "2017-08-11T02:10:57.885Z",
+    "files": [
+      {
+        "classifier": "oas",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/50978df3-5ab5-45f2-af88-778244d673ff/aut-66befff2-8259-4f83-993d-7da757e73ef2-1.5.20-oas.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=PFzeyvIhujkbyNBTlkci7ZEdvqc%3D",
+        "md5": "8966b1c8d1813b3a990a0ff3fc460e2b"
+      },
+      {
+        "classifier": "fat-raml",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/a660498c-0a42-4fb9-b96a-4a58af6a302f/aut-66befff2-8259-4f83-993d-7da757e73ef2-1.5.20-fat-raml.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=yQJUXdE19VJ9eNyoDKF9KyYZ9ug%3D&response-content-disposition=attachment%3B%20filename%3Daut-66befff2-8259-4f83-993d-7da757e73ef2-1.5.20-raml.zip",
+        "md5": "9371cff110e1beca0d2a5859c421b85a"
+      },
+      {
+        "classifier": "raml",
+        "packaging": "zip",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/955a34bb-9233-493a-afb2-eabb66437fb6/aut-66befff2-8259-4f83-993d-7da757e73ef2-1.5.20-raml.zip?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=ouDDK5blpFTQjGn3SZDnlfDfcwQ%3D",
+        "md5": "ef5257da1db9222377550957daeda641"
+      },
+      {
+        "classifier": "error",
+        "packaging": "txt",
+        "externalLink": "https://exchange2-asset-manager-kqa.s3.amazonaws.com/991c61af-9e34-4d03-b470-9dee8b78bfa4/14e0c173-aac6-4f4f-99cf-581e5d2cd7f9/aut-66befff2-8259-4f83-993d-7da757e73ef2-1.5.20-error.txt?AWSAccessKeyId=AKIAI5ZXWOH2ORZHJPTQ&Expires=1502898544&Signature=3f3b975E5GKYPgDIZYpw1bQOLeg%3D",
+        "md5": "be37e14ec751fb45e6f1f5b8affe5560"
+      }
+    ],
+    "createdBy": {
+      "id": "4a643a77-1630-4019-a006-dbabf2d63815",
+      "userName": "aut-exc-org-a-admin",
+      "firstName": "Automation",
+      "lastName": "Org-A-Admin"
+    },
+    "organization": {
+      "id": "991c61af-9e34-4d03-b470-9dee8b78bfa4",
+      "domain": "mulesoft",
+      "name": "MuleSoft"
+    },
+    "id": "991c61af-9e34-4d03-b470-9dee8b78bfa4/aut-66befff2-8259-4f83-993d-7da757e73ef2/1.5.20",
+    "icon": null,
+    "modifiedAt": "2017-08-11T02:10:57.885Z",
+    "dependencies": {},
+    "isPrivate": false,
+    "status": ""
+  }
+]

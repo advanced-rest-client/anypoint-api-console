@@ -1,5 +1,5 @@
 {
-  "entrypoint": "/Users/pawelpsztyc/workspace/mulesoft/anypoint-api-console/import.html",
+  "entrypoint": "/home/jarrod/workspace/mulesoft-labs/anypoint-api-console/import.html",
   "fragments": [],
   "sources": [
     "bower.json"
