@@ -20,10 +20,10 @@ This has to be run in a web server. Web component do not work with file:// schem
   <link rel="import" href="bower_components/api-navigation/api-navigation.html">
   <link rel="import" href="bower_components/api-documentation/api-documentation.html">
   <link rel="import" href="bower_components/api-request-panel/api-request-panel.html">
-  <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
   <link rel="import" href="bower_components/xhr-simple-request/xhr-simple-request.html">
   <link rel="import" href="bower_components/oauth-authorization/oauth-authorization.html">
   <link rel="import" href="bower_components/cryptojs-lib/cryptojs-lib.html">
+  <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
   <!-- <script src="import-detection.js"></script> -->
   <style>
   html,
@@ -41,10 +41,6 @@ This has to be run in a web server. Web component do not work with file:// schem
   .demo-content > *:last-child {
     margin-right: 0px;
   }
-
-  api-navigation {
-    width: 320px;
-  }
   </style>
   <custom-style>
     <style is="custom-style">
@@ -60,6 +56,11 @@ This has to be run in a web server. Web component do not work with file:// schem
 
     paper-dropdown-menu {
       background-color: #fff;
+    }
+
+    api-navigation {
+      min-width: 320px;
+      max-width: 256px;
     }
 
     api-documentation {
