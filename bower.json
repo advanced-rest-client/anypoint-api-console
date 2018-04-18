@@ -1,7 +1,6 @@
 {
   "name": "anypoint-api-console",
   "description": "",
-  "main": "index.js",
   "authors": [
     "Mulesoft"
   ],
