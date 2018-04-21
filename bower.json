@@ -31,6 +31,9 @@
     "cryptojs-lib": "advanced-rest-client/cryptojs-lib#^0.1.1",
     "web-animations-js": "web-animations/web-animations-js#^2.3"
   },
+  "devDependencies": {
+    "app-layout": "PolymerElements/app-layout#^2.0.0"
+  },
   "resolutions": {
     "paper-checkbox": "2.0.0-preview",
     "paper-dropdown-menu": "2.0.0-preview",

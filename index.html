@@ -13,6 +13,13 @@ This has to be run in a web server. Web component do not work with file:// schem
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>API console bundle inspector</title>
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+  <link rel="import" href="bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+  <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
+  <link rel="import" href="bower_components/app-layout/app-header-layout/app-header-layout.html">
+  <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+
   <link rel="import" href="bower_components/shadycss/apply-shim.html">
   <link rel="import" href="bower_components/polymer/lib/elements/custom-style.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
@@ -23,6 +30,7 @@ This has to be run in a web server. Web component do not work with file:// schem
   <link rel="import" href="bower_components/xhr-simple-request/xhr-simple-request.html">
   <link rel="import" href="bower_components/oauth-authorization/oauth-authorization.html">
   <link rel="import" href="bower_components/cryptojs-lib/cryptojs-lib.html">
+
   <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
   <!-- <script src="import-detection.js"></script> -->
   <style>
@@ -33,48 +41,49 @@ This has to be run in a web server. Web component do not work with file:// schem
     -webkit-font-smoothing: antialiased;
   }
 
-  .demo-content > * {
-    margin-right: 20px;
+  .api-selector {
     background-color: #fff;
   }
 
-  .demo-content > *:last-child {
-    margin-right: 0px;
+  [hidden] {
+    display: none !important;
   }
   </style>
   <custom-style>
     <style is="custom-style">
-    header {
-      padding: 12px 24px;
-      background-color: #C5E1A5;
-    }
-
-    .demo-content {
-      padding: 20px;
-      @apply --layout-horizontal;
-    }
-
-    paper-dropdown-menu {
-      background-color: #fff;
+    .drawer-content-wrapper {
+      max-height: 100%;
+      @apply --layout-vertical;
     }
 
     api-navigation {
-      min-width: 320px;
-      max-width: 256px;
+      @apply --layout-flex-auto;
+    }
+
+    .main-content {
+      margin-left: var(--api-console-main-content-margin-left, 24px);
+      margin-right: var(--api-console-main-content-margin-right, 24px);
+
     }
 
     api-documentation {
-      max-width: 900px;
-      @apply --layout-flex;
+      margin-right: 500px;
     }
 
-    api-request-panel {
-      max-width: 900px;
-      @apply --layout-flex;
+    .tryit {
+      position: fixed;
+      top: 84px;
+      right: 0px;
+      width: 480px;
     }
 
-    paper-item:hover  {
-      @apply --paper-item-hover;
+    app-drawer-layout:not([narrow]) [drawer-toggle] {
+      display: none;
+    }
+
+    app-toolbar {
+      background-color: var(--api-console-toolbar-background-color, #000);
+      color: var(--api-console-toolbar-color, #fff);
     }
     </style>
   </custom-style>
@@ -84,22 +93,42 @@ This has to be run in a web server. Web component do not work with file:// schem
   <xhr-simple-request></xhr-simple-request>
   <oauth1-authorization></oauth1-authorization>
   <oauth2-authorization></oauth2-authorization>
-  <header>
-    <paper-dropdown-menu label="Select demo API">
-      <paper-listbox slot="dropdown-content" id="enpointsList">
-        <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
-        <paper-item data-src="catalog.json">catalog-api</paper-item>
-        <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
-      </paper-listbox>
-    </paper-dropdown-menu>
-  </header>
-  <div class="demo-content">
-    <api-navigation aware="model" summary endpoints-opened></api-navigation>
-    <api-documentation aware="model" handle-navigation-events no-try-it></api-documentation>
-    <api-request-panel aware="model" handle-navigation-events></api-request-panel>
-  </div>
+  <app-drawer-layout>
+    <app-drawer slot="drawer">
+      <div class="drawer-content-wrapper">
+        <api-navigation aware="model" summary endpoints-opened></api-navigation>
+      </div>
+    </app-drawer>
+    <app-header-layout>
+      <app-header slot="header" fixed condenses effects="waterfall">
+        <app-toolbar>
+          <paper-icon-button icon="arc:menu" drawer-toggle></paper-icon-button>
+          <div main-title>API console for Anypoint demo</div>
+          <paper-dropdown-menu label="Select demo API" class="api-selector">
+            <paper-listbox slot="dropdown-content" id="enpointsList">
+              <paper-item data-src="demo-api.json">ARC demo API</paper-item>
+              <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
+              <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </app-toolbar>
+      </app-header>
+      <div class="main-content">
+        <api-documentation no-try-it aware="model" handle-navigation-events no-try-it></api-documentation>
+        <div class="tryit" hidden>
+          <api-request-panel aware="model"></api-request-panel>
+        </div>
+      </div>
+    </app-header-layout>
+  </app-drawer-layout>
   <script>
   var Demo = {};
+  Demo.requestPanel = function() {
+    return document.querySelector('api-request-panel');
+  };
+  Demo.requestPanelContainer = function() {
+    return document.querySelector('.tryit');
+  };
   Demo._apiChanged = function(e) {
     var file = e.target.selectedItem.dataset.src;
     Demo._loadFile(file);
@@ -123,8 +152,26 @@ This has to be run in a web server. Web component do not work with file:// schem
   Demo.init = function() {
     document.getElementById('enpointsList').selected = 0;
   };
+  Demo.runTryit = function(e) {
+    var id = e.detail.id;
+    Demo.requestPanel().selected = id;
+    Demo.requestPanelContainer().removeAttribute('hidden');
+  };
+
+  Demo.navChanged = function(e) {
+    if (e.detail.type !== 'method') {
+      if (e.detail.passive === true) {
+        return;
+      }
+      Demo.requestPanelContainer().setAttribute('hidden', true);
+    } else {
+      Demo.requestPanelContainer().removeAttribute('hidden');
+    }
+  };
   document.getElementById('enpointsList').addEventListener('selected-changed', Demo._apiChanged);
   window.addEventListener('WebComponentsReady', Demo.init);
+  window.addEventListener('tryit-requested', Demo.runTryit);
+  window.addEventListener('api-navigation-selection-changed', Demo.navChanged);
   </script>
 </body>
 </html>
