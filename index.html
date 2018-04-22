@@ -163,11 +163,9 @@ This has to be run in a web server. Web component do not work with file:// schem
       return;
     }
     if (e.detail.type !== 'method') {
-      if (e.detail.passive === true) {
-        return;
-      }
       Demo.requestPanelContainer().setAttribute('hidden', true);
     } else {
+      Demo.requestPanel().selected = e.detail.selected;
       Demo.requestPanelContainer().removeAttribute('hidden');
     }
   };
