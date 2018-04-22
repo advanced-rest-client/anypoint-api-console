@@ -18,7 +18,7 @@ git checkout 2.0.0-preview
 npm i
 ```
 
-Got and grab some coffee. It may take a while when installing for the first time...
+Go and grab some coffee. It will take a while to build the console from sources...
 
 When ready run any web server in the directory to see demo page. You can, for example, use polymer-cli included in the module:
 
@@ -39,7 +39,7 @@ $ npm i --save @mulesoft/anypoint-api-console
 API console is downloaded, installed and compiled (bundled) when this module
 is installed automatically.
 
-The install script will install current version of the console and perform
+The script will install current version of the console and perform
 the build for production. The assets are located in two bundles:
 
 - build/es5-bundle
