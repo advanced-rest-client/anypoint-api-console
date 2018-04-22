@@ -13,13 +13,14 @@ This has to be run in a web server. Web component do not work with file:// schem
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>API console bundle inspector</title>
   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <!-- This is demo page components only. They are not included into the build -->
   <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
   <link rel="import" href="bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
   <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
   <link rel="import" href="bower_components/app-layout/app-header-layout/app-header-layout.html">
   <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
   <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
-
+  <!-- This is API console & Polymer components -->
   <link rel="import" href="bower_components/shadycss/apply-shim.html">
   <link rel="import" href="bower_components/polymer/lib/elements/custom-style.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
@@ -27,11 +28,13 @@ This has to be run in a web server. Web component do not work with file:// schem
   <link rel="import" href="bower_components/api-navigation/api-navigation.html">
   <link rel="import" href="bower_components/api-documentation/api-documentation.html">
   <link rel="import" href="bower_components/api-request-panel/api-request-panel.html">
+  <!-- This is optional dependencies. -->
   <link rel="import" href="bower_components/xhr-simple-request/xhr-simple-request.html">
   <link rel="import" href="bower_components/oauth-authorization/oauth-authorization.html">
   <link rel="import" href="bower_components/cryptojs-lib/cryptojs-lib.html">
-
+  <!-- And finally this is theme. IT MUST BE LAST INCLUDED FILE SO IT WON'T BE OVERWRITTEN -->
   <link rel="import" href="bower_components/anypoint-styles/anypoint-theme.html">
+  <!-- This is build file. Can't be combined with imports above (this is how web components works). Also the build does not contain app layout elements and combining them will cause errors. -->
   <!-- <script src="import-detection.js"></script> -->
   <style>
   html,
@@ -49,6 +52,7 @@ This has to be run in a web server. Web component do not work with file:// schem
     display: none !important;
   }
   </style>
+  <!-- `<custom-style>` is a web component defined by Polymer library. Handles styles definition in components. -->
   <custom-style>
     <style is="custom-style">
     .drawer-content-wrapper {
@@ -89,13 +93,32 @@ This has to be run in a web server. Web component do not work with file:// schem
   </custom-style>
 </head>
 <body unresolved>
+  <!--
+    RAML aware uses monostate pattern (http://wiki.c2.com/?MonostatePattern)
+    to transport data accross all components without assigning values to each
+    of them. It is used to transport AMF model. You can always use `amfModel`
+    property available to all api components to set model value. This is just
+    more convinient way to do this. -->
   <raml-aware scope="model" id="aware"></raml-aware>
+  <!--
+    API components comes with few optional dependencies. You should not include
+    those dependencies into the build if you already have logic that perform
+    this tasks in order to reduce general initialization time and code size.
+
+    - xhr-simple-request handles `api-request` and `abort-api-requst` events
+      It also dispatches `api-response` event.
+    - oauth1-authorization/oauth2-authorization is responsible for OAuth authorization
+      dance flow. You really should not include this if your application already
+      have components that performs OAuth authorization. See components
+      documentation to learn events API.
+  -->
   <xhr-simple-request></xhr-simple-request>
   <oauth1-authorization></oauth1-authorization>
   <oauth2-authorization></oauth2-authorization>
   <app-drawer-layout>
     <app-drawer slot="drawer">
       <div class="drawer-content-wrapper">
+        <!-- Exchange uses navigation separately from other components. This demo shows how the console would work in the Exchange. -->
         <api-navigation aware="model" summary endpoints-opened></api-navigation>
       </div>
     </app-drawer>
@@ -114,8 +137,14 @@ This has to be run in a web server. Web component do not work with file:// schem
         </app-toolbar>
       </app-header>
       <div class="main-content">
+        <!--
+          When handle-navigation-events is set the panel listens for navigation event itself
+          so the application do not need to pass any data between navigation and documentation.
+          At least as long as you are using `api-navigation` component.
+        -->
         <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
         <div class="tryit" hidden>
+          <!-- This shows how to handle tryit in exchange where try it sticks to the right hand side of the page. -->
           <api-request-panel aware="model"></api-request-panel>
         </div>
       </div>
