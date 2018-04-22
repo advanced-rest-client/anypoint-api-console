@@ -114,7 +114,7 @@ This has to be run in a web server. Web component do not work with file:// schem
         </app-toolbar>
       </app-header>
       <div class="main-content">
-        <api-documentation no-try-it aware="model" handle-navigation-events no-try-it></api-documentation>
+        <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
         <div class="tryit" hidden>
           <api-request-panel aware="model"></api-request-panel>
         </div>
@@ -151,14 +151,17 @@ This has to be run in a web server. Web component do not work with file:// schem
   };
   Demo.init = function() {
     document.getElementById('enpointsList').selected = 0;
+    document.getElementById('doc').scrollTarget = window;
   };
   Demo.runTryit = function(e) {
     var id = e.detail.id;
     Demo.requestPanel().selected = id;
     Demo.requestPanelContainer().removeAttribute('hidden');
   };
-
   Demo.navChanged = function(e) {
+    if (e.detail.passive === true) {
+      return;
+    }
     if (e.detail.type !== 'method') {
       if (e.detail.passive === true) {
         return;
