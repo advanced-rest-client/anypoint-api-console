@@ -72,6 +72,16 @@ module.exports.importScript = function(bp) {
         }
       }
     }
+    if (typeof window.URL === 'undefined') {
+      var urlScript = document.createElement('script');
+      urlScript.src = moduleRoot + '/bower_components/url-polyfill/url.js';
+      if (document.readyState === 'loading') {
+        document.write(newScript.urlScript);
+      } else {
+        document.head.appendChild(urlScript);
+      }
+    }
+
   })();
   </script>
   `;
