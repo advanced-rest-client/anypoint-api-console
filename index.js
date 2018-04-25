@@ -1,18 +1,4 @@
 /**
- * Loads very small script that do feature detection for web components.
- * It loads more script if web components are not suppotred natively.
- *
- * @param {String} bp Base path of the components
- * @return {String} A script to load.
- */
-module.exports.preImportScript = function(bp) {
-  return `
-    // This script does feature detection and loads polyfills if required.
-    // Should be included before components import.
-    <script src="${bp}/webcomponentsjs/webcomponents-loader.js"></script>
-  `;
-};
-/**
  * This function returns a complete script to be placed in document body
  * to detect whether we are dealing with ES5 or ES6 client and
  * loads import file depending on the support.
@@ -51,17 +37,41 @@ module.exports.importScript = function(bp) {
       return true;
     }
     var isEs6 = detectEs6();
-    var moduleRoot = '/build/';
+    var moduleRoot = '${bp}/';
     if (isEs6) {
       moduleRoot += 'es6-bundle';
     } else {
       moduleRoot += 'es5-bundle';
     }
+    var script = document.createElement('script');
+    var src = moduleRoot + '/bower_components/webcomponentsjs/webcomponents-loader.js';
+    document.head.appendChild(script);
     var importFile = moduleRoot + '/import.html';
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
-    link.setAttribute('href', ${bp} + importFile);
+    link.setAttribute('href', importFile);
     document.head.appendChild(link);
+
+    var polyfills = [];
+    if (typeof Array.prototype.find === 'undefined') {
+      polyfills.push('arc-polyfills/arc-polyfills.html');
+    }
+    if (typeof CryptoJS === 'undefined') {
+      polyfills.push('cryptojs-lib/cryptojs-lib.html');
+    }
+    if (polyfills.length) {
+      for (var i = 0, len = polyfills.length; i < len; i++) {
+        var polyfillSrc = moduleRoot + '/bower_components/' + polyfills[i];
+        var pscript = document.createElement('link');
+        pscript.setAttribute('rel', 'import');
+        pscript.setAttribute('href', polyfillSrc);
+        if (document.readyState === 'loading') {
+          document.write(pscript.outerHTML);
+        } else {
+          document.head.appendChild(pscript);
+        }
+      }
+    }
   })();
   </script>
   `;
