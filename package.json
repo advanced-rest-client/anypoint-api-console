@@ -15,7 +15,7 @@
   "author": "Pawel Psztyc",
   "devDependencies": {
     "semantic-release": "^6.3.6",
-    "amf-client-js": "^1.4.0-19"
+    "amf-client-js": "^1.4.0-20"
   },
   "license": "UNLICENSED",
   "dependencies": {

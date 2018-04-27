@@ -41,6 +41,7 @@
     "iron-validatable-behavior": "2.0.0-preview",
     "arc-icons": "2.0.0-preview",
     "paper-input": "2.0.0-preview",
-    "headers-parser-behavior": "2.0.0-preview"
+    "headers-parser-behavior": "2.0.0-preview",
+    "api-property-form-item": "2.0.0-preview"
   }
 }
