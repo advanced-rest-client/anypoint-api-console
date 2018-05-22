@@ -1,34 +1,18 @@
-# Anypoint build of API console
+# Anypoint API console
 
-The build to be used in Exchange, API designer or any Anypoint application.
-
-It contains Restyled and customized version of the console to match Anypoint style guide.
-
-
-**⚠ This is build in progress. Report issues immediately so I can fix it. ⚠**
-
-Currently only dev version of this npm module is available.
-
-To run the demo:
-
-```
-git clone https://github.com/advanced-rest-client/anypoint-api-console.git
-cd anypoint-api-console
-git checkout 2.0.0-preview
-npm i
-```
-
-Go and grab some coffee. It will take a while to build the console from sources...
-
-When ready run any web server in the directory to see demo page. You can, for example, use polymer-cli included in the module:
-
-```
-node_modules/.bin/polymer serve --open
-```
-
-  **INSTRUCTIONS BELOW WILL BE VALID ONLY AFTER THIS PACKAGE IS PUBLISHED**
+The Anypoint styled API console..
 
 ## Usage
+
+### Prerequisites
+
+Before you get started, you'll want to register with our private npm repository so you can download the Anypoint modules.
+
+```
+npm login --registry=https://nexus3.build.msap.io/repository/npm-internal/ --scope=@mulesoft
+```
+
+### Adding Anypoint console to your project
 
 Install anypoint-api-console as a dependency of your project
 
@@ -36,11 +20,8 @@ Install anypoint-api-console as a dependency of your project
 $ npm i --save @mulesoft/anypoint-api-console
 ```
 
-API console is downloaded, installed and compiled (bundled) when this module
-is installed automatically.
-
-The script will install current version of the console and perform
-the build for production. The assets are located in two bundles:
+The script installs latest version of the console and performs build optimized for production.
+The assets are located in two bundles:
 
 - build/es5-bundle
 - build/es6-bundle
@@ -54,18 +35,23 @@ script that can be included in the page sources to automatically include
 proper bundle.
 
 ```html
-<script src="node_modules/@mulesoft/api-console-assets/build/es6-bundle/webcomponentsjs/webcomponents-loader.js"></script>
+<script>
+window.apic = {
+  basePath: '/path/to/console/assets/directory/' // <- trailing slash
+};
+</script>
 <script src="node_modules/@mulesoft/api-console-assets/import-detection.js"></script>
 ```
 
-It doesn't matter from which bundle `webcomponents-loader.js` is loaded from.
-
-And that's it. Console's sources are now loaded and ready to use.
+Alternatively you can use module function that generates contents of a script
+to be put in your project's main page:
 
 ## React application
 
 ```js
 const apiConsole = require('@mulesoft/api-console-assets');
+const publicRoot = await getPublicRoot();
+
 export default function renderHTML() {
   return `
 <!DOCTYPE html>
@@ -74,8 +60,9 @@ export default function renderHTML() {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    ${apiConsole.preImportScript(publicRoot)}
+    <script>
     ${apiConsole.importScript(publicRoot)}
+    </script>
   </head>
   <body>
     <api-console></api-console>
@@ -123,13 +110,27 @@ Bundles and React components are located in your project directory under `public
 Add this command to your scripts entry of `package.json`:
 
 ```json
-"build-console": "anypoint-api-console"
+"build-console": "@mulesoft/anypoint-api-console"
 ```
 
 and then run:
 
 ```
 $ npm run build-console
+```
+
+## Development
+
+```
+git clone https://github.com/mulesoft/anypoint-api-console.git
+cd anypoint-api-console
+npm i
+```
+
+When ready run any web server in the directory to see demo page. You can, for example, use polymer-cli included in the module:
+
+```
+node_modules/.bin/polymer serve --open
 ```
 
 ## Versioning
@@ -148,3 +149,7 @@ API console components are fixed on minor version so it's safe to update the Con
 whenever it's possible. You can be sure that components public API is the same. As long
 as you are not using custom styling of the console (and you shouldn't!) then
 you are always safe to upgrade the components.
+
+## Issues reporting
+
+Contact me directly on slack (Pawel Psztyc) or create a ticket here.
