@@ -6,6 +6,12 @@
  */
 (function() {
   'use strict';
+  if (!window.apic) {
+    window.apic = {};
+  }
+  if (!window.apic) {
+    window.apic.basePath = '';
+  }
   /**
    * Detects ES6 support by testing arrow functions.
    * It has to be executed in eval or otherwise the script would
@@ -26,15 +32,49 @@
     return true;
   }
   var isEs6 = detectEs6();
-  var moduleRoot = '/build/';
+  var moduleRoot = window.apic.basePath;
   if (isEs6) {
     moduleRoot += 'es6-bundle';
   } else {
     moduleRoot += 'es5-bundle';
   }
+
+  var script = document.createElement('script');
+  var src = moduleRoot + '/bower_components/webcomponentsjs/webcomponents-loader.js';
+  document.head.appendChild(script);
   var importFile = moduleRoot + '/import.html';
   var link = document.createElement('link');
   link.setAttribute('rel', 'import');
   link.setAttribute('href', importFile);
   document.head.appendChild(link);
+
+  var polyfills = [];
+  if (typeof Array.prototype.find === 'undefined') {
+    polyfills.push('arc-polyfills/arc-polyfills.html');
+  }
+  if (typeof CryptoJS === 'undefined') {
+    polyfills.push('cryptojs-lib/cryptojs-lib.html');
+  }
+  if (polyfills.length) {
+    for (var i = 0, len = polyfills.length; i < len; i++) {
+      var polyfillSrc = moduleRoot + '/bower_components/' + polyfills[i];
+      var pscript = document.createElement('link');
+      pscript.setAttribute('rel', 'import');
+      pscript.setAttribute('href', polyfillSrc);
+      if (document.readyState === 'loading') {
+        document.write(pscript.outerHTML);
+      } else {
+        document.head.appendChild(pscript);
+      }
+    }
+  }
+  if (typeof window.URL === 'undefined') {
+    var urlScript = document.createElement('script');
+    urlScript.src = moduleRoot + '/bower_components/url-polyfill/url.js';
+    if (document.readyState === 'loading') {
+      document.write(newScript.urlScript);
+    } else {
+      document.head.appendChild(urlScript);
+    }
+  }
 })();
