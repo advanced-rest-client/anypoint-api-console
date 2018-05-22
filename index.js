@@ -8,7 +8,6 @@
  */
 module.exports.importScript = function(bp) {
   return `
-  <script>
   /**
    * This file is to be included into the Exchange or other application
    * main page that serves the console so it can detect which build
@@ -83,6 +82,5 @@ module.exports.importScript = function(bp) {
     }
 
   })();
-  </script>
   `;
 };
