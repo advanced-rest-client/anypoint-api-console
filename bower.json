@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
+    "oauth-authorization": "advanced-rest-client/oauth-authorization#^2.0.1",
     "api-navigation": "advanced-rest-client/api-navigation#^2.0.0",
     "api-request-panel": "advanced-rest-client/api-request-panel#^2.0.0",
     "api-documentation": "advanced-rest-client/api-documentation#^2.0.0",
@@ -20,14 +21,13 @@
     "xhr-simple-request": "advanced-rest-client/xhr-simple-request#^2.0.0",
     "arc-polyfills": "advanced-rest-client/arc-polyfills#^0.1.11",
     "raml-aware": "advanced-rest-client/raml-aware#^2.0.0",
-    "paper-checkbox": "advanced-rest-client/paper-checkbox#2.0.0-preview",
-    "paper-dropdown-menu": "mulesoft/paper-dropdown-menu#2.0.0-preview",
-    "paper-input": "advanced-rest-client/paper-input#2.0.0-preview",
-    "anypoint-styles": "advanced-rest-client/anypoint-styles#2.0.0-preview",
-    "iron-validatable-behavior": "advanced-rest-client/iron-validatable-behavior#2.0.0-preview",
-    "iron-validator-behavior": "advanced-rest-client/iron-validator-behavior#2.0.0-preview",
-    "arc-icons": "advanced-rest-client/anypoint-icons#2.0.0-preview",
-    "oauth-authorization": "advanced-rest-client/oauth-authorization#^2.0.1",
+    "paper-checkbox": "mulesoft-labs/paper-checkbox#master",
+    "paper-dropdown-menu": "mulesoft/paper-dropdown-menu#master",
+    "paper-input": "mulesoft-labs/paper-input#master",
+    "iron-validatable-behavior": "mulesoft-labs/iron-validatable-behavior#master",
+    "iron-validator-behavior": "mulesoft-labs/iron-validator-behavior#master",
+    "anypoint-styles": "mulesoft-labs/anypoint-styles#master",
+    "arc-icons": "mulesoft-labs/anypoint-icons#master",
     "cryptojs-lib": "advanced-rest-client/cryptojs-lib#^0.1.1",
     "web-animations-js": "web-animations/web-animations-js#^2.3",
     "url-polyfill": "github/url-polyfill#^0.5.6"
@@ -36,10 +36,12 @@
     "app-layout": "PolymerElements/app-layout#^2.0.0"
   },
   "resolutions": {
-    "paper-checkbox": "2.0.0-preview",
-    "paper-dropdown-menu": "2.0.0-preview",
-    "iron-validatable-behavior": "2.0.0-preview",
-    "arc-icons": "2.0.0-preview",
-    "paper-input": "2.0.0-preview"
+    "iron-validator-behavior": "master",
+    "paper-input": "master",
+    "iron-validatable-behavior": "master",
+    "paper-checkbox": "master",
+    "anypoint-styles": "master",
+    "arc-icons": "master",
+    "paper-dropdown-menu": "master"
   }
 }
