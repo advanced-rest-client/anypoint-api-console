@@ -1,7 +1,7 @@
 {
   "name": "@mulesoft/anypoint-api-console",
   "description": "Contains build tools for Anypoint version of API console",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bin": "lib/install.js",
   "scripts": {
     "reactify": "node lib/api-reactor.js",
