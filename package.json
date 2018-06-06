@@ -1,7 +1,7 @@
 {
   "name": "@mulesoft/anypoint-api-console",
   "description": "Contains build tools for Anypoint version of API console",
-  "version": "0.0.3",
+  "version": "2.0.0-preview",
   "bin": "lib/install.js",
   "scripts": {
     "reactify": "node lib/api-reactor.js",
@@ -22,9 +22,5 @@
     "bower": "^1.8.0",
     "fs-extra": "^5.0.0",
     "wc-reactor": "^0.1.3"
-  },
-  "api-console": {
-    "useFragments": true,
-    "addWebAnimationsApi": true
   }
 }
