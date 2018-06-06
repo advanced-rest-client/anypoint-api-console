@@ -14,10 +14,10 @@ npm login --registry=https://nexus3.build.msap.io/repository/npm-internal/ --sco
 
 ### Adding Anypoint console to your project
 
-Install anypoint-api-console as a dependency of your project
+Install anypoint-api-console as a dependency of your project. Check for current snapshot version in the package.json file.
 
 ```
-$ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview
+$ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview-1
 ```
 
 The script installs latest version of the console and performs build optimized for production.
