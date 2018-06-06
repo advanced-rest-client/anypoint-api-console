@@ -41,12 +41,17 @@
 
   var script = document.createElement('script');
   var src = moduleRoot + '/bower_components/webcomponentsjs/webcomponents-loader.js';
+  script.src = src;
   document.head.appendChild(script);
   var importFile = moduleRoot + '/import.html';
   var link = document.createElement('link');
   link.setAttribute('rel', 'import');
   link.setAttribute('href', importFile);
-  document.head.appendChild(link);
+  if (document.readyState === 'loading') {
+    document.write(link.outerHTML);
+  } else {
+    document.head.appendChild(link);
+  }
 
   var polyfills = [];
   if (typeof Array.prototype.find === 'undefined') {
@@ -72,7 +77,7 @@
     var urlScript = document.createElement('script');
     urlScript.src = moduleRoot + '/bower_components/url-polyfill/url.js';
     if (document.readyState === 'loading') {
-      document.write(newScript.urlScript);
+      document.write(urlScript);
     } else {
       document.head.appendChild(urlScript);
     }
