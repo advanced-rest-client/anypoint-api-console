@@ -4,7 +4,7 @@ The Anypoint styled API console..
 
 ## Usage
 
-### Prerequisites
+### Before you begin
 
 Before you get started, you'll want to register with our private npm repository so you can download the Anypoint modules.
 
@@ -12,9 +12,41 @@ Before you get started, you'll want to register with our private npm repository 
 npm login --registry=https://nexus3.build.msap.io/repository/npm-internal/ --scope=@mulesoft
 ```
 
+### Configure your project
+
+Configure behavior of the build process by creating `"api-console"` entry in your `package.json` file.
+
+List of all available options are in [lib/install.js](lib/install.js#L135) script.
+
+### Exchange example (uses components)
+
+```json
+"api-console": {
+  "useFragments": true,
+  "addWebAnimationsApi": true,
+  "out": "public/api-console"
+}
+```
+
+### DC example (uses API console application)
+
+```json
+"api-console": {
+  "addXhrRequest": true,
+  "addWebAnimationsApi": true,
+  "out": "public/api-console"
+}
+```
+
+`useFragments` option tells the build script to not include whole API console
+sources but rather `api-navigation`, `api-documentation` and `api-request-panel`
+components.
+
+Bundles and React components are located in your project directory under `public/api-console`.
+
 ### Adding Anypoint console to your project
 
-Install anypoint-api-console as a dependency of your project. Check for current snapshot version in the package.json file.
+Install anypoint-api-console as a dependency of your project. __Check for current snapshot version in the `package.json` file.__
 
 ```
 $ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview-1
@@ -71,39 +103,6 @@ export default function renderHTML() {
   `;
 }
 ```
-
-## Configuration
-
-You can configure behavior of the build process by creating `"api-console"`
-entry in your `package.json` file.
-
-List of all available options are in [lib/install.js](lib/install.js#L114) script.
-
-### Exchange example
-
-```json
-"api-console": {
-  "useFragments": true,
-  "addWebAnimationsApi": true,
-  "out": "public/api-console"
-}
-```
-
-### DC example
-
-```json
-"api-console": {
-  "addXhrRequest": true,
-  "addWebAnimationsApi": true,
-  "out": "public/api-console"
-}
-```
-
-`useFragments` option tells the build script to not include whole API console
-sources but rather `api-navigation`, `api-documentation` and `api-request-panel`
-components.
-
-Bundles and React components are located in your project directory under `public/api-console`.
 
 ## Rebuilding the console
 
