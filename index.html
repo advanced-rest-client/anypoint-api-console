@@ -79,6 +79,7 @@ This has to be run in a web server. Web component do not work with file:// schem
       top: 84px;
       right: 0px;
       width: 480px;
+      background-color: #F9FAFB;
     }
 
     app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -147,7 +148,7 @@ This has to be run in a web server. Web component do not work with file:// schem
         <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
         <div class="tryit" hidden>
           <!-- This shows how to handle tryit in exchange where try it sticks to the right hand side of the page. -->
-          <api-request-panel aware="model"></api-request-panel>
+          <api-request-panel aware="model" narrow></api-request-panel>
         </div>
       </div>
     </app-header-layout>

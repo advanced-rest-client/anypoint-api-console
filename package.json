@@ -14,7 +14,7 @@
   },
   "author": "Pawel Psztyc",
   "devDependencies": {
-    "amf-client-js": "^1.4.0-31"
+    "amf-client-js": "^1.5.0"
   },
   "license": "UNLICENSED",
   "dependencies": {
