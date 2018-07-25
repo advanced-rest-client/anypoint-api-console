@@ -84,6 +84,9 @@
   if (typeof CryptoJS === 'undefined') {
     polyfills.push('cryptojs-lib/cryptojs-lib.html');
   }
+  if (typeof window.URL === 'undefined') {
+    polyfills.push('url/url-polyfill.html');
+  }
   if (polyfills.length) {
     for (var i = 0, len = polyfills.length; i < len; i++) {
       var polyfillSrc = moduleRoot + '/bower_components/' + polyfills[i];
@@ -95,15 +98,6 @@
       } else {
         document.head.appendChild(pscript);
       }
-    }
-  }
-  if (typeof window.URL === 'undefined') {
-    var urlScript = document.createElement('script');
-    urlScript.src = moduleRoot + '/bower_components/url-polyfill/url.js';
-    if (document.readyState === 'loading') {
-      document.write(urlScript);
-    } else {
-      document.head.appendChild(urlScript);
     }
   }
 })();

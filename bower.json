@@ -30,7 +30,7 @@
     "arc-icons": "mulesoft-labs/anypoint-icons#master",
     "cryptojs-lib": "advanced-rest-client/cryptojs-lib#^0.1.1",
     "web-animations-js": "web-animations/web-animations-js#^2.3",
-    "url-polyfill": "github/url-polyfill#^0.5.6"
+    "url": "advanced-rest-client/URL#^0.6.1"
   },
   "devDependencies": {
     "app-layout": "PolymerElements/app-layout#^2.0.0"
