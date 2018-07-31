@@ -37,19 +37,34 @@ This has to be run in a web server. Web component do not work with file:// schem
   <!-- `<custom-style>` is a web component defined by Polymer library. Handles styles definition in components. -->
   <custom-style>
     <style is="custom-style">
-    .drawer-content-wrapper {
-      max-height: 100%;
-      @apply --layout-vertical;
+
+    header {
+      background-color: #000;
+      @apply --layout-horizontal;
+      @apply --layout-center;
+      padding: 0 20px;
     }
 
-    api-navigation {
-      @apply --layout-flex-auto;
+    h1 {
+      @apply --arc-font-title;
+      font-size: 20px;
+      color: #fff;
+      @apply --layout-flex;
+    }
+
+    .main-container {
+      position: relative;
+    }
+
+    .drawer-content-wrapper {
+      position: fixed;
+      width: 256px;
+      height: 100vh - 61px;
+      overflow: auto;
     }
 
     .main-content {
-      margin-left: var(--api-console-main-content-margin-left, 24px);
-      margin-right: var(--api-console-main-content-margin-right, 24px);
-
+      margin-left: 276px;
     }
 
     api-documentation {
@@ -61,15 +76,7 @@ This has to be run in a web server. Web component do not work with file:// schem
       top: 84px;
       right: 0px;
       width: 480px;
-    }
-
-    app-drawer-layout:not([narrow]) [drawer-toggle] {
-      display: none;
-    }
-
-    app-toolbar {
-      background-color: var(--api-console-toolbar-background-color, #000);
-      color: var(--api-console-toolbar-color, #fff);
+      background-color: #F9FAFB;
     }
     </style>
   </custom-style>
@@ -97,43 +104,31 @@ This has to be run in a web server. Web component do not work with file:// schem
   <xhr-simple-request></xhr-simple-request>
   <oauth1-authorization></oauth1-authorization>
   <oauth2-authorization></oauth2-authorization>
-  <app-drawer-layout>
-    <app-drawer slot="drawer">
-      <div class="drawer-content-wrapper">
-        <!-- Exchange uses navigation separately from other components. This demo shows how the console would work in the Exchange. -->
-        <api-navigation aware="model" summary endpoints-opened></api-navigation>
+
+  <div class="main-container">
+    <div class="drawer-content-wrapper">
+      <api-navigation aware="model" summary endpoints-opened></api-navigation>
+    </div>
+    <div class="main-content">
+      <header>
+        <h1>API console for Anypoint demo</h1>
+        <paper-dropdown-menu label="Select demo API" class="api-selector">
+          <paper-listbox slot="dropdown-content" id="enpointsList">
+            <paper-item data-src="demo-api.json">ARC demo API</paper-item>
+            <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
+            <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
+            <paper-item data-src="loan-microservice.json">Loan Microservice</paper-item>
+            <paper-item data-src="carolina-test.json">Carolina test</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu>
+      </header>
+      <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
+      <div class="tryit" hidden>
+        <!-- This shows how to handle tryit in exchange where try it sticks to the right hand side of the page. -->
+        <api-request-panel aware="model" narrow no-docs></api-request-panel>
       </div>
-    </app-drawer>
-    <app-header-layout>
-      <app-header slot="header" fixed condenses effects="waterfall">
-        <app-toolbar>
-          <paper-icon-button icon="arc:menu" drawer-toggle></paper-icon-button>
-          <div main-title>API console for Anypoint demo</div>
-          <paper-dropdown-menu label="Select demo API" class="api-selector">
-            <paper-listbox slot="dropdown-content" id="enpointsList">
-              <paper-item data-src="demo-api.json">ARC demo API</paper-item>
-              <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
-              <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
-              <paper-item data-src="loan-microservice.json">Loan Microservice</paper-item>
-              <paper-item data-src="carolina-test.json">Carolina test</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-        </app-toolbar>
-      </app-header>
-      <div class="main-content">
-        <!--
-          When handle-navigation-events is set the panel listens for navigation event itself
-          so the application do not need to pass any data between navigation and documentation.
-          At least as long as you are using `api-navigation` component.
-        -->
-        <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
-        <div class="tryit" hidden>
-          <!-- This shows how to handle tryit in exchange where try it sticks to the right hand side of the page. -->
-          <api-request-panel aware="model"></api-request-panel>
-        </div>
-      </div>
-    </app-header-layout>
-  </app-drawer-layout>
+    </div>
+  </div>
   <script>
   var Demo = {};
   Demo.requestPanel = function() {
