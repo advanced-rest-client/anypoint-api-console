@@ -12,6 +12,7 @@ files.set(`${r}cardconnect-rest-api/cardconnect-rest-api.raml`, 'RAML 1.0');
 files.set(`${r}catalog-api/catalog.raml`, 'RAML 1.0');
 files.set(`${r}exchange-xapi/exchange-xapi.raml`, 'RAML 1.0');
 files.set(`${r}loan-ms/loan-microservice.json`, 'OAS 2.0');
+files.set(`${r}apic-98/apic-98.raml`, 'RAML 1.0');
 /**
  * Generates json/ld file from parsed document.
  *
@@ -29,7 +30,9 @@ function processFile(doc, file, type) {
   file = file.substr(0, file.lastIndexOf('.')) + '.json';
   console.log('Generating data', file);
   let genTime = Date.now();
-  return generator.generateString(doc)
+  const opts = amf.render.RenderOptions().withSourceMaps.withCompactUris;
+  return generator.generateString(doc, opts)
+  // return generator.generateString(doc)
   .then((data) => {
     console.log('Generation took %d ms for %s', (Date.now() - genTime), file);
     fs.writeFileSync('demo-apis/models/' + file, data, 'utf8');

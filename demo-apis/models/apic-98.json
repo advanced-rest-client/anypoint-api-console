@@ -1,0 +1,183 @@
+[
+  {
+    "@id": "amf://id",
+    "@type": [
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "amf://id#1",
+        "@type": [
+          "http://schema.org/WebAPI",
+          "http://a.ml/vocabularies/document#RootDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://schema.org/name": [
+          {
+            "@value": "API Designer"
+          }
+        ],
+        "http://a.ml/vocabularies/http#endpoint": [
+          {
+            "@id": "amf://id#2",
+            "@type": [
+              "http://a.ml/vocabularies/http#EndPoint",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/http#path": [
+              {
+                "@value": "/customers"
+              }
+            ]
+          },
+          {
+            "@id": "amf://id#3",
+            "@type": [
+              "http://a.ml/vocabularies/http#EndPoint",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/http#path": [
+              {
+                "@value": "/customers/list"
+              }
+            ]
+          },
+          {
+            "@id": "amf://id#4",
+            "@type": [
+              "http://a.ml/vocabularies/http#EndPoint",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/http#path": [
+              {
+                "@value": "/customers/list/{id}"
+              }
+            ],
+            "http://www.w3.org/ns/hydra/core#supportedOperation": [
+              {
+                "@id": "amf://id#5",
+                "@type": [
+                  "http://www.w3.org/ns/hydra/core#Operation",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://www.w3.org/ns/hydra/core#method": [
+                  {
+                    "@value": "get"
+                  }
+                ],
+                "http://www.w3.org/ns/hydra/core#returns": [
+                  {
+                    "@id": "amf://id#6",
+                    "@type": [
+                      "http://a.ml/vocabularies/http#Response",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://schema.org/name": [
+                      {
+                        "@value": "200"
+                      }
+                    ],
+                    "http://www.w3.org/ns/hydra/core#statusCode": [
+                      {
+                        "@value": "200"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/http#payload": [
+                      {
+                        "@id": "amf://id#7",
+                        "@type": [
+                          "http://a.ml/vocabularies/http#Payload",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/http#mediaType": [
+                          {
+                            "@value": "application/json"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/http#schema": [
+                          {
+                            "@id": "amf://id#8",
+                            "@type": [
+                              "http://www.w3.org/ns/shacl#NodeShape",
+                              "http://www.w3.org/ns/shacl#Shape",
+                              "http://a.ml/vocabularies/shapes#Shape",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://www.w3.org/ns/shacl#closed": [
+                              {
+                                "@value": false
+                              }
+                            ],
+                            "http://www.w3.org/ns/shacl#property": [],
+                            "http://www.w3.org/ns/shacl#name": [
+                              {
+                                "@value": "schema"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/http#parameter": [
+              {
+                "@id": "amf://id#9",
+                "@type": [
+                  "http://a.ml/vocabularies/http#Parameter",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://schema.org/name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/http#paramName": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://www.w3.org/ns/hydra/core#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/http#binding": [
+                  {
+                    "@value": "path"
+                  }
+                ],
+                "http://a.ml/vocabularies/http#schema": [
+                  {
+                    "@id": "amf://id#10",
+                    "@type": [
+                      "http://a.ml/vocabularies/shapes#ScalarShape",
+                      "http://www.w3.org/ns/shacl#Shape",
+                      "http://a.ml/vocabularies/shapes#Shape",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://www.w3.org/ns/shacl#datatype": [
+                      {
+                        "@id": "http://www.w3.org/2001/XMLSchema#string"
+                      }
+                    ],
+                    "http://www.w3.org/ns/shacl#name": [
+                      {
+                        "@value": "id"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
