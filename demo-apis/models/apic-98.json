@@ -1,122 +1,306 @@
 [
   {
-    "@id": "amf://id",
+    "@id": "",
     "@type": [
-      "http://a.ml/vocabularies/document#Document",
-      "http://a.ml/vocabularies/document#Fragment",
-      "http://a.ml/vocabularies/document#Module",
-      "http://a.ml/vocabularies/document#Unit"
+      "doc:Document",
+      "doc:Fragment",
+      "doc:Module",
+      "doc:Unit"
     ],
-    "http://a.ml/vocabularies/document#encodes": [
+    "doc:encodes": [
       {
-        "@id": "amf://id#1",
+        "@id": "#1",
         "@type": [
-          "http://schema.org/WebAPI",
-          "http://a.ml/vocabularies/document#RootDomainElement",
-          "http://a.ml/vocabularies/document#DomainElement"
+          "schema-org:WebAPI",
+          "doc:RootDomainElement",
+          "doc:DomainElement"
         ],
-        "http://schema.org/name": [
+        "schema-org:name": [
           {
             "@value": "API Designer"
           }
         ],
-        "http://a.ml/vocabularies/http#endpoint": [
+        "raml-http:endpoint": [
           {
-            "@id": "amf://id#2",
+            "@id": "#2",
             "@type": [
-              "http://a.ml/vocabularies/http#EndPoint",
-              "http://a.ml/vocabularies/document#DomainElement"
+              "raml-http:EndPoint",
+              "doc:DomainElement"
             ],
-            "http://a.ml/vocabularies/http#path": [
+            "raml-http:path": [
               {
                 "@value": "/customers"
               }
-            ]
-          },
-          {
-            "@id": "amf://id#3",
-            "@type": [
-              "http://a.ml/vocabularies/http#EndPoint",
-              "http://a.ml/vocabularies/document#DomainElement"
             ],
-            "http://a.ml/vocabularies/http#path": [
+            "sourcemaps:sources": [
               {
-                "@value": "/customers/list"
+                "@id": "#2/source-map",
+                "@type": [
+                  "sourcemaps:SourceMap"
+                ],
+                "sourcemaps:lexical": [
+                  {
+                    "sourcemaps:element": [
+                      {
+                        "@value": "amf://id#2"
+                      }
+                    ],
+                    "sourcemaps:value": [
+                      {
+                        "@value": "[(3,0)-(12,0)]"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           },
           {
-            "@id": "amf://id#4",
+            "@id": "#3",
             "@type": [
-              "http://a.ml/vocabularies/http#EndPoint",
-              "http://a.ml/vocabularies/document#DomainElement"
+              "raml-http:EndPoint",
+              "doc:DomainElement"
             ],
-            "http://a.ml/vocabularies/http#path": [
+            "raml-http:path": [
+              {
+                "@value": "/customers/list"
+              }
+            ],
+            "sourcemaps:sources": [
+              {
+                "@id": "#3/source-map",
+                "@type": [
+                  "sourcemaps:SourceMap"
+                ],
+                "sourcemaps:parent-end-point": [
+                  {
+                    "sourcemaps:element": [
+                      {
+                        "@value": "amf://id#3"
+                      }
+                    ],
+                    "sourcemaps:value": [
+                      {
+                        "@value": "file://demo-apis/apic-98/apic-98.raml#/web-api/end-points/%2Fcustomers"
+                      }
+                    ]
+                  }
+                ],
+                "sourcemaps:lexical": [
+                  {
+                    "sourcemaps:element": [
+                      {
+                        "@value": "amf://id#3"
+                      }
+                    ],
+                    "sourcemaps:value": [
+                      {
+                        "@value": "[(4,2)-(12,0)]"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "#4",
+            "@type": [
+              "raml-http:EndPoint",
+              "doc:DomainElement"
+            ],
+            "raml-http:path": [
               {
                 "@value": "/customers/list/{id}"
               }
             ],
-            "http://www.w3.org/ns/hydra/core#supportedOperation": [
+            "hydra:supportedOperation": [
               {
-                "@id": "amf://id#5",
+                "@id": "#5",
                 "@type": [
-                  "http://www.w3.org/ns/hydra/core#Operation",
-                  "http://a.ml/vocabularies/document#DomainElement"
+                  "hydra:Operation",
+                  "doc:DomainElement"
                 ],
-                "http://www.w3.org/ns/hydra/core#method": [
+                "hydra:method": [
                   {
                     "@value": "get"
                   }
                 ],
-                "http://www.w3.org/ns/hydra/core#returns": [
+                "hydra:returns": [
                   {
-                    "@id": "amf://id#6",
+                    "@id": "#6",
                     "@type": [
-                      "http://a.ml/vocabularies/http#Response",
-                      "http://a.ml/vocabularies/document#DomainElement"
+                      "raml-http:Response",
+                      "doc:DomainElement"
                     ],
-                    "http://schema.org/name": [
+                    "schema-org:name": [
                       {
                         "@value": "200"
                       }
                     ],
-                    "http://www.w3.org/ns/hydra/core#statusCode": [
+                    "hydra:statusCode": [
                       {
                         "@value": "200"
                       }
                     ],
-                    "http://a.ml/vocabularies/http#payload": [
+                    "raml-http:payload": [
                       {
-                        "@id": "amf://id#7",
+                        "@id": "#7",
                         "@type": [
-                          "http://a.ml/vocabularies/http#Payload",
-                          "http://a.ml/vocabularies/document#DomainElement"
+                          "raml-http:Payload",
+                          "doc:DomainElement"
                         ],
-                        "http://a.ml/vocabularies/http#mediaType": [
+                        "raml-http:mediaType": [
                           {
                             "@value": "application/json"
                           }
                         ],
-                        "http://a.ml/vocabularies/http#schema": [
+                        "raml-http:schema": [
                           {
-                            "@id": "amf://id#8",
+                            "@id": "#8",
                             "@type": [
-                              "http://www.w3.org/ns/shacl#NodeShape",
-                              "http://www.w3.org/ns/shacl#Shape",
-                              "http://a.ml/vocabularies/shapes#Shape",
-                              "http://a.ml/vocabularies/document#DomainElement"
+                              "shacl:NodeShape",
+                              "shacl:Shape",
+                              "raml-shapes:Shape",
+                              "doc:DomainElement"
                             ],
-                            "http://www.w3.org/ns/shacl#closed": [
+                            "shacl:closed": [
                               {
                                 "@value": false
                               }
                             ],
-                            "http://www.w3.org/ns/shacl#property": [],
-                            "http://www.w3.org/ns/shacl#name": [
+                            "shacl:property": [],
+                            "shacl:name": [
                               {
                                 "@value": "schema"
                               }
+                            ],
+                            "sourcemaps:sources": [
+                              {
+                                "@id": "#8/source-map",
+                                "@type": [
+                                  "sourcemaps:SourceMap"
+                                ],
+                                "sourcemaps:type-property-lexical-info": [
+                                  {
+                                    "sourcemaps:element": [
+                                      {
+                                        "@value": "amf://id#8"
+                                      }
+                                    ],
+                                    "sourcemaps:value": [
+                                      {
+                                        "@value": "[(11,16)-(11,20)]"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "sourcemaps:lexical": [
+                                  {
+                                    "sourcemaps:element": [
+                                      {
+                                        "@value": "amf://id#8"
+                                      }
+                                    ],
+                                    "sourcemaps:value": [
+                                      {
+                                        "@value": "[(10,14)-(12,0)]"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
                             ]
+                          }
+                        ],
+                        "sourcemaps:sources": [
+                          {
+                            "@id": "#7/source-map",
+                            "@type": [
+                              "sourcemaps:SourceMap"
+                            ],
+                            "sourcemaps:lexical": [
+                              {
+                                "sourcemaps:element": [
+                                  {
+                                    "@value": "amf://id#7"
+                                  }
+                                ],
+                                "sourcemaps:value": [
+                                  {
+                                    "@value": "[(10,14)-(12,0)]"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "sourcemaps:sources": [
+                      {
+                        "@id": "#6/source-map",
+                        "@type": [
+                          "sourcemaps:SourceMap"
+                        ],
+                        "sourcemaps:lexical": [
+                          {
+                            "sourcemaps:element": [
+                              {
+                                "@value": "raml-http:payload"
+                              }
+                            ],
+                            "sourcemaps:value": [
+                              {
+                                "@value": "[(9,12)-(12,0)]"
+                              }
+                            ]
+                          },
+                          {
+                            "sourcemaps:element": [
+                              {
+                                "@value": "amf://id#6"
+                              }
+                            ],
+                            "sourcemaps:value": [
+                              {
+                                "@value": "[(8,10)-(12,0)]"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "sourcemaps:sources": [
+                  {
+                    "@id": "#5/source-map",
+                    "@type": [
+                      "sourcemaps:SourceMap"
+                    ],
+                    "sourcemaps:lexical": [
+                      {
+                        "sourcemaps:element": [
+                          {
+                            "@value": "hydra:returns"
+                          }
+                        ],
+                        "sourcemaps:value": [
+                          {
+                            "@value": "[(7,8)-(12,0)]"
+                          }
+                        ]
+                      },
+                      {
+                        "sourcemaps:element": [
+                          {
+                            "@value": "amf://id#5"
+                          }
+                        ],
+                        "sourcemaps:value": [
+                          {
+                            "@value": "[(6,6)-(12,0)]"
                           }
                         ]
                       }
@@ -125,50 +309,108 @@
                 ]
               }
             ],
-            "http://a.ml/vocabularies/http#parameter": [
+            "raml-http:parameter": [
               {
-                "@id": "amf://id#9",
+                "@id": "#9",
                 "@type": [
-                  "http://a.ml/vocabularies/http#Parameter",
-                  "http://a.ml/vocabularies/document#DomainElement"
+                  "raml-http:Parameter",
+                  "doc:DomainElement"
                 ],
-                "http://schema.org/name": [
+                "schema-org:name": [
                   {
                     "@value": "id"
                   }
                 ],
-                "http://a.ml/vocabularies/http#paramName": [
+                "raml-http:paramName": [
                   {
                     "@value": "id"
                   }
                 ],
-                "http://www.w3.org/ns/hydra/core#required": [
+                "hydra:required": [
                   {
                     "@value": true
                   }
                 ],
-                "http://a.ml/vocabularies/http#binding": [
+                "raml-http:binding": [
                   {
                     "@value": "path"
                   }
                 ],
-                "http://a.ml/vocabularies/http#schema": [
+                "raml-http:schema": [
                   {
-                    "@id": "amf://id#10",
+                    "@id": "#10",
                     "@type": [
-                      "http://a.ml/vocabularies/shapes#ScalarShape",
-                      "http://www.w3.org/ns/shacl#Shape",
-                      "http://a.ml/vocabularies/shapes#Shape",
-                      "http://a.ml/vocabularies/document#DomainElement"
+                      "raml-shapes:ScalarShape",
+                      "shacl:Shape",
+                      "raml-shapes:Shape",
+                      "doc:DomainElement"
                     ],
-                    "http://www.w3.org/ns/shacl#datatype": [
+                    "shacl:datatype": [
                       {
                         "@id": "http://www.w3.org/2001/XMLSchema#string"
                       }
                     ],
-                    "http://www.w3.org/ns/shacl#name": [
+                    "shacl:name": [
                       {
                         "@value": "id"
+                      }
+                    ]
+                  }
+                ],
+                "sourcemaps:sources": [
+                  {
+                    "@id": "#9/source-map",
+                    "@type": [
+                      "sourcemaps:SourceMap"
+                    ],
+                    "sourcemaps:synthesized-field": [
+                      {
+                        "sourcemaps:element": [
+                          {
+                            "@value": "amf://id#9"
+                          }
+                        ],
+                        "sourcemaps:value": [
+                          {
+                            "@value": "true"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "sourcemaps:sources": [
+              {
+                "@id": "#4/source-map",
+                "@type": [
+                  "sourcemaps:SourceMap"
+                ],
+                "sourcemaps:parent-end-point": [
+                  {
+                    "sourcemaps:element": [
+                      {
+                        "@value": "amf://id#4"
+                      }
+                    ],
+                    "sourcemaps:value": [
+                      {
+                        "@value": "file://demo-apis/apic-98/apic-98.raml#/web-api/end-points/%2Fcustomers%2Flist"
+                      }
+                    ]
+                  }
+                ],
+                "sourcemaps:lexical": [
+                  {
+                    "sourcemaps:element": [
+                      {
+                        "@value": "amf://id#4"
+                      }
+                    ],
+                    "sourcemaps:value": [
+                      {
+                        "@value": "[(5,4)-(12,0)]"
                       }
                     ]
                   }
@@ -176,8 +418,66 @@
               }
             ]
           }
+        ],
+        "sourcemaps:sources": [
+          {
+            "@id": "#1/source-map",
+            "@type": [
+              "sourcemaps:SourceMap"
+            ],
+            "sourcemaps:source-vendor": [
+              {
+                "sourcemaps:element": [
+                  {
+                    "@value": "amf://id#1"
+                  }
+                ],
+                "sourcemaps:value": [
+                  {
+                    "@value": "RAML 1.0"
+                  }
+                ]
+              }
+            ],
+            "sourcemaps:lexical": [
+              {
+                "sourcemaps:element": [
+                  {
+                    "@value": "schema-org:name"
+                  }
+                ],
+                "sourcemaps:value": [
+                  {
+                    "@value": "[(2,0)-(3,0)]"
+                  }
+                ]
+              },
+              {
+                "sourcemaps:element": [
+                  {
+                    "@value": "amf://id#1"
+                  }
+                ],
+                "sourcemaps:value": [
+                  {
+                    "@value": "[(2,0)-(12,0)]"
+                  }
+                ]
+              }
+            ]
+          }
         ]
       }
-    ]
+    ],
+    "@context": {
+      "@base": "amf://id",
+      "raml-http": "http://a.ml/vocabularies/http#",
+      "raml-shapes": "http://a.ml/vocabularies/shapes#",
+      "shacl": "http://www.w3.org/ns/shacl#",
+      "doc": "http://a.ml/vocabularies/document#",
+      "sourcemaps": "http://a.ml/vocabularies/document-source-maps#",
+      "schema-org": "http://schema.org/",
+      "hydra": "http://www.w3.org/ns/hydra/core#"
+    }
   }
 ]
