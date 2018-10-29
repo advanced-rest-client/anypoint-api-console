@@ -432,3 +432,10 @@ securitySchemes:
         description: |
           This demonstrates a body as an Array
         type: AppPerson[]
+/testDates:
+  get:
+    queryParameters:
+      start:
+        type: date-only
+      end:
+        type: datetime
