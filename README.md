@@ -132,6 +132,34 @@ When ready run any web server in the directory to see demo page. You can, for ex
 node_modules/.bin/polymer serve --open
 ```
 
+### Adding new API for testing
+
+Add your API to `/demo-apis/[api-folder]/[api-file].raml` location.
+
+Next add entry to `files` map in `/demo-apis/models.js`:
+
+```javascript
+files.set(`${r}[api-folder]/[api-file].raml`, 'RAML 1.0');
+```
+
+Generate the model:
+
+```
+$ node demo-apis/model.js
+```
+
+And finally add entry to the dropdown in demo page (`index.html`):
+
+```html
+<paper-listbox slot="dropdown-content" id="enpointsList">
+  ...
+  <paper-item data-src="[api-file].json">My name</paper-item>
+</paper-listbox>
+```
+
+Open or refresh index.html page (must be served from `http:`, not `file:`)
+and the API is in dropdown menu on the right top.
+
 ## Versioning
 
 You may notice that there's no fixed versioning of the console. It means that
