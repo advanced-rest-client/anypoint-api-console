@@ -439,3 +439,16 @@ securitySchemes:
         type: date-only
       end:
         type: datetime
+/apic-160:
+  post:
+    headers:
+      stringValue:
+        required: true
+        type: number
+    body:
+      application/json:
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"result": "ok"}
