@@ -14,6 +14,7 @@ files.set(`${r}exchange-xapi/exchange-xapi.raml`, 'RAML 1.0');
 files.set(`${r}loan-ms/loan-microservice.json`, 'OAS 2.0');
 files.set(`${r}apic-98/apic-98.raml`, 'RAML 1.0');
 files.set(`${r}apic-145/apic-145.raml`, 'RAML 1.0');
+files.set(`${r}lib-fragment/lib-fragment.raml`, 'RAML 1.0');
 /**
  * Generates json/ld file from parsed document.
  *
