@@ -11,9 +11,13 @@ files.set(`${r}demo-api/demo-api.raml`, 'RAML 1.0');
 files.set(`${r}cardconnect-rest-api/cardconnect-rest-api.raml`, 'RAML 1.0');
 files.set(`${r}catalog-api/catalog.raml`, 'RAML 1.0');
 files.set(`${r}exchange-xapi/exchange-xapi.raml`, 'RAML 1.0');
-files.set(`${r}loan-ms/loan-microservice.json`, 'OAS 2.0');
+files.set(`${r}loan-ms/loan-microservice.json`, {
+  type: 'OAS 2.0',
+  contentType: 'application/json'
+});
 files.set(`${r}apic-98/apic-98.raml`, 'RAML 1.0');
 files.set(`${r}apic-145/apic-145.raml`, 'RAML 1.0');
+files.set(`${r}apic-160/apic-160.raml`, 'RAML 1.0');
 files.set(`${r}lib-fragment/lib-fragment.raml`, 'RAML 1.0');
 /**
  * Generates json/ld file from parsed document.
@@ -44,14 +48,23 @@ function processFile(doc, file, type) {
  * Parses file and sends it to process.
  *
  * @param {String} file File name in `demo` folder
- * @param {String} type Source file type
+ * @param {String|Object} type Source file type.
  * @return {String}
  */
 function parseFile(file, type) {
-  console.log('Parsing', file);
-  const parser = amf.Core.parser(type, 'application/yaml');
+  let ct;
+  let apiType;
+  if (!type || typeof type === 'string') {
+    ct = 'application/yaml';
+    apiType = type;
+  } else {
+    ct = type.contentType;
+    apiType = type.type;
+  }
+  console.log('Parsing', file, 'as', apiType, 'with media type', ct);
+  const parser = amf.Core.parser(apiType, ct);
   return parser.parseFileAsync(`file://${file}`)
-  .then((doc) => processFile(doc, file, type));
+  .then((doc) => processFile(doc, file, apiType));
 }
 
 amf.Core.init().then(() => {
