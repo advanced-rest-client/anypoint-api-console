@@ -24,6 +24,8 @@ List of all available options are in [lib/install.js](lib/install.js#L135) scrip
 "api-console": {
   "useFragments": true,
   "addWebAnimationsApi": true,
+  "addCryptoJs": true,
+  "addApiOAuthComponents": true,
   "out": "public/api-console"
 }
 ```
@@ -33,6 +35,8 @@ List of all available options are in [lib/install.js](lib/install.js#L135) scrip
 ```json
 "api-console": {
   "addXhrRequest": true,
+  "addCryptoJs": true,
+  "addApiOAuthComponents": true,
   "addWebAnimationsApi": true,
   "out": "public/api-console"
 }
@@ -44,12 +48,40 @@ components.
 
 Bundles and React components are located in your project directory under `public/api-console`.
 
+### Optional dependencies
+
+API Console does not include some of the libraries previously available in the default build. If your project already uses the dependency there's no need to include it into the build.
+
+#### OAuth 1/2 authorization components
+
+Use `addApiOAuthComponents` option to include them into the build.
+Additionally you must add the following lines into the DOM:
+
+```html
+<oauth1-authorization></oauth1-authorization>
+<oauth2-authorization></oauth2-authorization>
+```
+
+If your project do not uses fragments (uses `<api-console>` element) then this 2 lines are already included.
+
+#### CryotoJS library
+
+It is used with OAuth 1 authorization. Add `addCryptoJs` option to your configuration. No need to declare any use of the library.
+
+#### JS polyfills
+
+Add `addJsPolyfills` option when your project does not include any polyfills. APIC uses new Array and String APIs.
+
+#### Request handling
+
+API console comes with a library to run the request (`xhr-simple-request`). If your project do not handle `api-request` event then add `addXhrRequest` configuration option (required for APID).
+
 ### Adding Anypoint console to your project
 
 Install anypoint-api-console as a dependency of your project. __Check for current snapshot version in the `package.json` file.__
 
 ```
-$ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview-1
+$ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview-9
 ```
 
 The script installs latest version of the console and performs build optimized for production.
