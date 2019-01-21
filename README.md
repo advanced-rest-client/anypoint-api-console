@@ -81,7 +81,13 @@ API console comes with a library to run the request (`xhr-simple-request`). If y
 Install anypoint-api-console as a dependency of your project. __Check for current snapshot version in the `package.json` file.__
 
 ```
-$ npm i --save @mulesoft/anypoint-api-console#2.0.0-preview-9
+$ npm i --save @mulesoft/anypoint-api-console#2.0.2
+```
+
+Then run
+
+```
+$ ./node_modules/.bin/anypoint-api-console
 ```
 
 The script installs latest version of the console and performs build optimized for production.
