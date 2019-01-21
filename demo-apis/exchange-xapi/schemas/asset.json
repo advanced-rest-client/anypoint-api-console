@@ -1,0 +1,196 @@
+{
+  "title": "Asset",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "groupId": {
+      "title": "Group Id",
+      "type": "string"
+    },
+    "assetId": {
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "createdBy": {
+      "title":  "Created by",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "title": "First Name",
+          "type": "string"
+        },
+        "lastName": {
+          "title": "Last Name",
+          "type": "string"
+        },
+        "username": {
+          "title": "Username",
+          "type": "string"
+        },
+        "profilePhoto": {
+          "title": "Profile Photo",
+          "type": "string"
+        }
+      }
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "icon": {
+      "title": "Icon",
+      "type": "string"
+    },
+    "permissions": {
+      "title": "Permissions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isPrivate": {
+      "title": "Is private",
+      "type": "boolean"
+    },
+    "createdAt": {
+      "title": "Created at date",
+      "type": "string"
+    },
+    "modifiedAt": {
+      "title": "Modified at date",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "numberOfRates":{
+      "title": "Number of rates",
+      "type": "integer"
+    },
+    "rating":{
+      "title": "Rating",
+      "type": "number"
+    },
+    "status":{
+      "title": "Status",
+      "type": "string"
+    },
+    "type": {
+      "title": "Type",
+      "type": "string"
+    },
+    "versions":{
+      "title": "Versions",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "assetId": {
+            "title": "Asset Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          },
+          "muleVersionId": {
+            "title": "MuleVersion Id",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "versions":{
+      "title": "Tags",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "mutable": {
+            "title": "Mutable",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "dependencies":{
+      "title": "Dependencies",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "assetId": {
+            "title": "Asset Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          },
+          "muleVersionId": {
+            "title": "MuleVersion Id",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "organization": {
+      "title": "Organization",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "domain": {
+          "title": "Domain",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

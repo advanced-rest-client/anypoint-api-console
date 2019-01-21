@@ -1,23 +1,38 @@
 {
-  "name": "api-console-assets",
-  "description": "This repo only exists to publish api console components to npm",
-  "main": "index.js",
+  "name": "@mulesoft/anypoint-api-console",
+  "description": "Contains build tools for Anypoint version of API console",
+  "version": "2.0.1",
+  "bin": "lib/install.js",
   "scripts": {
-    "build": "bower update && find ./bower_components -name package.json -exec rm {} \\; && node ./create-bundle.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "reactify": "node lib/api-reactor.js",
+    "build": "node lib/install.js",
+    "install": "node lib/install.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft-labs/api-console-assets.git"
+    "url": "https://github.com/mulesoft-labs/anypoint-api-console.git"
   },
-  "author": "Mulesoft",
+  "author": "Pawel Psztyc",
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^2.0.0",
-    "api-console-builder": "^0.4.2",
-    "bower": "^1.8.0",
-    "semantic-release": "^6.3.6"
+    "amf-client-js": "^3.0.2"
   },
-  "release": {
-    "analyzeCommits": "./commitAnalyzer"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bower": "^1.8.4",
+    "bower-logger": "^0.2.2",
+    "fs-extra": "7.0.0",
+    "polymer-build": "^3.0.4",
+    "tmp": "0.0.33",
+    "vinyl": "^1.2.0",
+    "vinyl-fs": "^2.4.4",
+    "wc-reactor": "^0.1.3",
+    "winston": "3.1.0"
+  },
+  "api-console": {
+    "useFragments": true,
+    "addWebAnimationsApi": true,
+    "addCryptoJs": true,
+    "addApiOAuthComponents": true,
+    "verbose": true
   }
 }

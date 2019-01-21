@@ -1,0 +1,18 @@
+[
+  {
+    "assetVersion": "1.0.0",
+    "apiId": 10,
+    "isPublic": true,
+    "environmentId": "5706e7bd-ee1b-4411-8202-f7263938d4e2",
+    "endpointUri": "https://devx.some-api.org/api",
+    "instanceName": "Development"
+  },
+  {
+    "assetVersion": "1.0.1",
+    "apiId": 11,
+    "isPublic": true,
+    "environmentId": "12345678-19f8-3321-90d9-8a7b6c5d",
+    "endpointUri": "https://qax.some-api.org/api",
+    "instanceName": "QA"
+  }
+]

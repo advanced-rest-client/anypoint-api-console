@@ -1,0 +1,27 @@
+[
+  {
+    "assetVersion": "1.0.0",
+    "apiId": 10,
+    "isPublic": true,
+    "environmentId": "5706e7bd-ee1b-4411-8202-f7263938d4e2",
+    "endpointUri": "https://devx.some-api.org/api",
+    "instanceName": "Development",
+    "mocked": false
+  },
+  {
+    "assetVersion": "1.0.1",
+    "apiId": 11,
+    "isPublic": true,
+    "environmentId": "12345678-19f8-3321-90d9-8a7b6c5d",
+    "endpointUri": "https://qax.some-api.org/api",
+    "instanceName": "QA",
+    "mocked": false
+  },
+  {
+    "assetVersion": "1.0.1",
+    "isPublic": true,
+    "endpointUri": "https://mocking-service.example.com/api/32345678-19f8-3321-90d9-8a7b6c51",
+    "instanceName": "Mocked Service - 1.0.1",
+    "mocked": true
+  }
+]

@@ -1,0 +1,16 @@
+#%RAML 1.0
+title: example
+
+/tests:
+  post:
+    headers:
+      stringValue:
+        required: true
+        type: number
+    body:
+      application/json:
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"result": "ok"}

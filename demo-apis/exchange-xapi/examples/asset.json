@@ -1,0 +1,66 @@
+{
+  "id": "org.mule.modules/Test-connector-1/1.0.0",
+  "groupId": "org.mule.modules",
+  "assetId": "Test-connector-1",
+  "version": "1.0.0",
+  "description": "My connector test description",
+  "name": "My Anypoint Connector",
+  "type": "connector",
+  "createdAt": "2017-01-25T19:36:45.654Z",
+  "modifiedAt": "2017-01-25T19:36:45.654Z",
+  "versions": [
+    {
+      "id": "org.mule.modules/Test-connector-1/1.0.0",
+      "groupId": "org.mule.modules",
+      "assetId": "Test-connector-1",
+      "version": "1.0.0",
+      "muleVersionId": "3.7"
+    },
+    {
+      "id": "org.mule.modules/Test-connector-1/2.0.0",
+      "groupId": "org.mule.modules",
+      "assetId": "Test-connector-1",
+      "version": "2.0.0",
+      "muleVersionId": "3.7"
+    }
+  ],
+  "tags": [
+    {
+      "key": "Mule",
+      "value": "Connetor",
+      "mutable": true
+    },
+    {
+      "key": "Tech",
+      "value": "Database",
+      "mutable": true
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "org.mule.modules/Test-connector-1/1.0.0",
+      "groupId": "org.mule.modules",
+      "assetId": "Test-connector-1",
+      "version": "1.0.0",
+      "type": "extension",
+      "version": "1.0.0",
+      "name": "Mule App"
+    }
+  ],
+  "isPrivate": false,
+  "status": "published",
+  "createdBy": {
+    "id": "22222a22-2222-22a2-a2aa-2222222222aa",
+    "firstName": "Ezequiel",
+    "lastName": "Farina",
+    "userName": "Eze"
+  },
+  "rating": 3.5,
+  "numberOfRates": 2,
+  "permissions": [],
+  "organization": {
+    "id": "f0c9b011-980e-4928-9430-e60e3a97c043",
+    "domain": "mulesoft",
+    "name": "MuleSoft"
+  }
+}

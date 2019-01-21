@@ -1,0 +1,117 @@
+<!doctype html>
+<!--
+@license
+Copyright 2017 Mulesoft.
+-->
+<!--
+This has to be run in a web server. Web component do not work with file:// scheme.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>API console bundle inspector</title>
+  <script>
+  window.apic = {
+    basePath: 'build/'
+  };
+  </script>
+  <script src="import-detection.js"></script>
+  <style>
+  html,
+  body {
+    margin: 0;
+    font-family: "Open Sans", "DIN Pro", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .api-selector {
+    background-color: #fff;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  .main-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  api-console {
+    min-height: calc(100vh - 62px);
+  }
+  </style>
+  <!-- `<custom-style>` is a web component defined by Polymer library. Handles styles definition in components. -->
+  <custom-style>
+    <style is="custom-style">
+
+    header {
+      background-color: #000;
+      @apply --layout-horizontal;
+      @apply --layout-center;
+      padding: 0 20px;
+    }
+
+    h1 {
+      @apply --arc-font-title;
+      font-size: 20px;
+      color: #fff;
+      @apply --layout-flex;
+    }
+    </style>
+  </custom-style>
+</head>
+<body unresolved>
+  <!--
+    API components comes with few optional dependencies. You should not include
+    those dependencies into the build if you already have logic that perform
+    this tasks in order to reduce general initialization time and code size.
+
+    - xhr-simple-request handles `api-request` and `abort-api-requst` events
+      It also dispatches `api-response` event.
+    - oauth1-authorization/oauth2-authorization is responsible for OAuth authorization
+      dance flow. You really should not include this if your application already
+      have components that performs OAuth authorization. See components
+      documentation to learn events API.
+  -->
+  <xhr-simple-request></xhr-simple-request>
+  <oauth1-authorization></oauth1-authorization>
+  <oauth2-authorization></oauth2-authorization>
+
+  <div class="main-container">
+    <header>
+      <h1>API console for Anypoint demo</h1>
+      <paper-dropdown-menu label="Select demo API" class="api-selector">
+        <paper-listbox slot="dropdown-content" id="enpointsList">
+          <paper-item data-src="demo-api.json">ARC demo API</paper-item>
+          <paper-item data-src="cardconnect-rest-api.json">CardConnect REST API</paper-item>
+          <paper-item data-src="exchange-xapi.json">Exchange Xapi</paper-item>
+          <paper-item data-src="loan-microservice.json">Loan Microservice</paper-item>
+          <paper-item data-src="carolina-test.json">Carolina test</paper-item>
+          <paper-item data-src="apic-98.json">APIC-98</paper-item>
+          <paper-item data-src="apic-145.json">APIC-145</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+    </header>
+    <api-console id="apic" no-toolbars allow-custom allow-hide-optional no-docs no-extension-banner></api-console>
+  </div>
+  <script>
+  var Demo = {};
+  Demo._apiChanged = function(e) {
+    var file = e.target.selectedItem.dataset.src;
+    if (file) {
+      file = 'demo-apis/models/' + file;
+    }
+    document.getElementById('apic').modelLocation = file;
+  };
+  Demo.init = function() {
+    document.getElementById('enpointsList').selected = 0;
+  };
+  document.getElementById('enpointsList').addEventListener('selected-changed', Demo._apiChanged);
+  window.addEventListener('WebComponentsReady', Demo.init);
+  </script>
+</body>
+</html>
