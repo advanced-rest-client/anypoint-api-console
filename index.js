@@ -83,30 +83,6 @@ module.exports.importScript = function(bp) {
       document.head.appendChild(link);
       link.onload = bundleLoaded;
     }
-
-    var polyfills = [];
-    if (typeof Array.prototype.find === 'undefined') {
-      polyfills.push('arc-polyfills/arc-polyfills.html');
-    }
-    if (typeof CryptoJS === 'undefined') {
-      polyfills.push('cryptojs-lib/cryptojs-lib.html');
-    }
-    if (typeof window.URL === 'undefined') {
-      polyfills.push('url/url-polyfill.html');
-    }
-    if (polyfills.length) {
-      for (var i = 0, len = polyfills.length; i < len; i++) {
-        var polyfillSrc = moduleRoot + '/bower_components/' + polyfills[i];
-        var pscript = document.createElement('link');
-        pscript.setAttribute('rel', 'import');
-        pscript.setAttribute('href', polyfillSrc);
-        if (document.readyState === 'loading') {
-          document.write(pscript.outerHTML);
-        } else {
-          document.head.appendChild(pscript);
-        }
-      }
-    }
   })();
   `;
 };
