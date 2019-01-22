@@ -80,6 +80,7 @@ This has to be run in a web server. Web component do not work with file:// schem
       right: 0px;
       width: 480px;
       background-color: #F9FAFB;
+      padding: 10px;
     }
 
     app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -89,6 +90,11 @@ This has to be run in a web server. Web component do not work with file:// schem
     app-toolbar {
       background-color: var(--api-console-toolbar-background-color, #000);
       color: var(--api-console-toolbar-color, #fff);
+    }
+
+    app-toolbar paper-checkbox {
+      margin-right: 15px;
+      --paper-checkbox-label-color: #fff;
     }
     </style>
   </custom-style>
@@ -128,6 +134,7 @@ This has to be run in a web server. Web component do not work with file:// schem
         <app-toolbar>
           <paper-icon-button icon="arc:menu" drawer-toggle></paper-icon-button>
           <div main-title>API console for Anypoint demo</div>
+          <paper-checkbox id="narrow">Narrow</paper-checkbox>
           <paper-dropdown-menu label="Select demo API" class="api-selector">
             <paper-listbox slot="dropdown-content" id="enpointsList">
               <paper-item data-src="demo-api.json">ARC demo API</paper-item>
@@ -152,7 +159,7 @@ This has to be run in a web server. Web component do not work with file:// schem
         <api-documentation id="doc" aware="model" handle-navigation-events no-try-it></api-documentation>
         <div class="tryit" hidden>
           <!-- This shows how to handle tryit in exchange where try it sticks to the right hand side of the page. -->
-          <api-request-panel aware="model" narrow no-docs></api-request-panel>
+          <api-request-panel aware="model" no-docs allow-custom allow-disable-params allow-hide-optional></api-request-panel>
         </div>
       </div>
     </app-header-layout>
@@ -188,6 +195,12 @@ This has to be run in a web server. Web component do not work with file:// schem
   Demo.init = function() {
     document.getElementById('enpointsList').selected = 0;
     document.getElementById('doc').scrollTarget = window;
+    var narrow = document.getElementById('narrow');
+    narrow.addEventListener('checked-changed', Demo.narrowChanged);
+    narrow.checked = true;
+  };
+  Demo.narrowChanged = function(e) {
+    Demo.requestPanel().narrow = e.detail.value;
   };
   Demo.runTryit = function(e) {
     var id = e.detail.id;
