@@ -214,6 +214,20 @@
 "@type": [
 "sourcemaps:SourceMap"
 ],
+"sourcemaps:auto-generated-name": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#8"
+}
+],
+"sourcemaps:value": [
+{
+"@value": ""
+}
+]
+}
+],
 "sourcemaps:lexical": [
 {
 "sourcemaps:element": [
@@ -272,6 +286,18 @@
 "sourcemaps:value": [
 {
 "@value": "[(10,4)-(12,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#4"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(6,0)-(17,0)]"
 }
 ]
 },
@@ -350,13 +376,17 @@
 {
 "@id": "#13",
 "@type": [
-"data:Object"
+"data:Object",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:result": [
 {
 "@id": "#14",
 "@type": [
-"data:Scalar"
+"data:Scalar",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:value": [
 {
@@ -395,6 +425,18 @@
 "sourcemaps:SourceMap"
 ],
 "sourcemaps:lexical": [
+{
+"sourcemaps:element": [
+{
+"@value": "data:result"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(16,32)-(16,36)]"
+}
+]
+},
 {
 "sourcemaps:element": [
 {
@@ -472,7 +514,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(16,21)-(16,37)]"
+"@value": "[(16,12)-(17,0)]"
 }
 ]
 }
@@ -500,6 +542,20 @@
 "@id": "#11/source-map",
 "@type": [
 "sourcemaps:SourceMap"
+],
+"sourcemaps:auto-generated-name": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#11"
+}
+],
+"sourcemaps:value": [
+{
+"@value": ""
+}
+]
+}
 ],
 "sourcemaps:lexical": [
 {

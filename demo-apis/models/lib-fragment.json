@@ -25,6 +25,16 @@
 "@value": "To test stuff"
 }
 ],
+"raml-http:accepts": [
+{
+"@value": "application/json"
+}
+],
+"raml-http:contentType": [
+{
+"@value": "application/json"
+}
+],
 "raml-http:scheme": [
 {
 "@value": "HTTP"
@@ -257,16 +267,28 @@
 "@type": [
 "sourcemaps:SourceMap"
 ],
-"sourcemaps:source-vendor": [
+"sourcemaps:single-value-array": [
 {
 "sourcemaps:element": [
 {
-"@value": "amf://id#21"
+"@value": "raml-http:contentType"
 }
 ],
 "sourcemaps:value": [
 {
-"@value": "RAML 1.0"
+"@value": ""
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "raml-http:accepts"
+}
+],
+"sourcemaps:value": [
+{
+"@value": ""
 }
 ]
 }
@@ -281,6 +303,18 @@
 "sourcemaps:value": [
 {
 "@value": "[(4,0)-(5,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "raml-http:contentType"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,0)-(6,0)]"
 }
 ]
 },
@@ -323,12 +357,38 @@
 {
 "sourcemaps:element": [
 {
+"@value": "raml-http:accepts"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(5,0)-(6,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "raml-http:scheme"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(6,0)-(9,0)]"
+}
+]
+}
+],
+"sourcemaps:source-vendor": [
+{
+"sourcemaps:element": [
+{
+"@value": "amf://id#21"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "RAML 1.0"
 }
 ]
 }
@@ -557,13 +617,17 @@
 {
 "@id": "#8",
 "@type": [
-"data:Object"
+"data:Object",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:bar": [
 {
 "@id": "#9",
 "@type": [
-"data:Scalar"
+"data:Scalar",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:value": [
 {
@@ -599,7 +663,9 @@
 {
 "@id": "#10",
 "@type": [
-"data:Scalar"
+"data:Scalar",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:value": [
 {
@@ -641,12 +707,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:foo"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(11,11)-(11,18)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#8"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(11,0)-(14,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:bar"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(12,11)-(12,13)]"
 }
 ]
 }
@@ -671,7 +761,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "      foo: \"hello\"\n      bar: 42\n\n"
+"@value": "\n      foo: \"hello\"\n      bar: 42\n\n"
 }
 ],
 "sourcemaps:sources": [
@@ -715,7 +805,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(11,0)-(14,0)]"
+"@value": "[(10,4)-(14,0)]"
 }
 ]
 }
@@ -1099,13 +1189,17 @@
 {
 "@id": "#17",
 "@type": [
-"data:Object"
+"data:Object",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:bar": [
 {
 "@id": "#18",
 "@type": [
-"data:Scalar"
+"data:Scalar",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:value": [
 {
@@ -1141,7 +1235,9 @@
 {
 "@id": "#19",
 "@type": [
-"data:Scalar"
+"data:Scalar",
+"data:Node",
+"doc:DomainElement"
 ],
 "data:value": [
 {
@@ -1183,12 +1279,36 @@
 {
 "sourcemaps:element": [
 {
+"@value": "data:foo"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(20,11)-(20,16)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
 "@value": "amf://id#17"
 }
 ],
 "sourcemaps:value": [
 {
 "@value": "[(20,0)-(22,0)]"
+}
+]
+},
+{
+"sourcemaps:element": [
+{
+"@value": "data:bar"
+}
+],
+"sourcemaps:value": [
+{
+"@value": "[(21,11)-(21,16)]"
 }
 ]
 }
@@ -1213,7 +1333,7 @@
 ],
 "shacl:raw": [
 {
-"@value": "      foo: \"bye\"\n      bar: false\n"
+"@value": "\n      foo: \"bye\"\n      bar: false\n"
 }
 ],
 "sourcemaps:sources": [
@@ -1257,7 +1377,7 @@
 ],
 "sourcemaps:value": [
 {
-"@value": "[(20,0)-(22,0)]"
+"@value": "[(19,4)-(22,0)]"
 }
 ]
 }
