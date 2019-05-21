@@ -13,14 +13,14 @@
   },
   "author": "Pawel Psztyc",
   "devDependencies": {
-    "amf-client-js": "^3.0.2"
+    "amf-client-js": "^3.2.1"
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "bower": "^1.8.4",
+    "bower": "^1.8.8",
     "bower-logger": "^0.2.2",
     "fs-extra": "7.0.0",
-    "polymer-build": "^3.0.4",
+    "polymer-build": "^3.1.4",
     "tmp": "0.0.33",
     "vinyl": "^1.2.0",
     "vinyl-fs": "^2.4.4",
